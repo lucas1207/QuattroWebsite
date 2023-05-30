@@ -1,0 +1,17 @@
+{
+	"componentFunctionalJavaScript": {
+    "prefix": "newStyles",
+    "body": [
+      "import {StyleSheet} from 'react-native';",
+      "",
+      "",
+      "export const createStyles = (styleGuide) => StyleSheet.create ({",
+      " container: {",
+      "   flex: 1",
+      " }",
+      "",
+      "})"
+    ],
+    "description": "Create a style file with acess to the Styleguide"
+  }	
+}

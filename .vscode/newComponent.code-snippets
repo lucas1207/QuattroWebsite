@@ -1,0 +1,26 @@
+{
+	"componentFunctionalJavaScript": {
+    "prefix": "newComponent",
+    "body": [
+      "import React from 'react';",
+      "import { View } from 'react-native';",
+      "",
+      "import {createStyles} from './styles';",
+      "",
+      "const ${1:${TM_DIRECTORY/^.*(\\/|\\\\)([^(\\/|\\\\)]+)$/$2/}} = () => {",
+      "",
+      "  const {styleguide} = useStyleguide();",
+      "  const styles = useMemo(() => createStyles(styleguide), [styleguide]);",
+      "",
+      "  return (",
+      "",
+      "  <View style={styles.container} />",
+      "",
+      "  );",
+      "}",
+      "",
+      "export default ${1:${TM_DIRECTORY/^.*(\\/|\\\\)([^(\\/|\\\\)]+)$/$2/}};"
+    ],
+    "description": "Create React Native Functional Component"
+  }	
+}
