@@ -4,6 +4,7 @@ import { View, Text } from 'react-native';
 import {createStyles} from './styles';
 import { useStyleguide } from '../../hooks/styleguide';
 import Header from '../../components/Header';
+import Footer from '../../components/Footer'
 
 const Home = () => {
 
@@ -15,6 +16,7 @@ const Home = () => {
 
   <View style={styles.container} >
     <Header/>
+    <Footer/>
   </View>
 
   );
