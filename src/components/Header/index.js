@@ -13,9 +13,11 @@ import Youtube from '../../assets/svgs/youtube';
 
 const Header = () => {
 
-  const {styleguide, responsive} = useStyleguide();
+  const {styleguide, responsive, maxWidth} = useStyleguide();
   const styles = useMemo(() => createStyles(styleguide), [styleguide]);
 
+
+  
 
   const tabs = [
     "Portfolio",
@@ -39,7 +41,7 @@ const Header = () => {
   return (
 
   <View onLayout={(e)=>{}}style={styles.container}>
-      <View style={styles.contentContainer}>
+      <View style={[styles.contentContainer,{maxWidth}]}>
 
           <Pressable style={styles.buttonQuattro}>
             <Image source={LogoQuattro} style={styles.logoQuattro}></Image>

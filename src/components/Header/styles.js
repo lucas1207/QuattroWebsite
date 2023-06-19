@@ -5,12 +5,13 @@ export const createStyles = (styleGuide) => StyleSheet.create ({
  container: {
    width: '100%',
    height: 60,
+ 
    backgroundColor: styleGuide.colors.backgroundPrimary,
    shadowColor: '#000000',
    shadowOpacity: 0.25,
    alignItems: 'center',
-   
-   shadowRadius: 8,
+  
+   shadowRadius: 12,
    shadowOffset: {
     width: 0,
     height: 4
@@ -21,7 +22,7 @@ export const createStyles = (styleGuide) => StyleSheet.create ({
     width: '100%',
     height: '100%',
     alignItems: 'center',
-    maxWidth: 1300,
+    maxWidth: styleGuide.maxWidth,
     paddingHorizontal: 10,
     justifyContent: 'space-between',
     flexDirection: 'row',

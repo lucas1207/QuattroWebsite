@@ -16,6 +16,8 @@ const StyleguideProvider = ({ children }) => {
 
   initialStyleguide.colors = colors;
 
+  const maxWidth = 1300
+
   const [styleguide, setStyleguide] = useState(initialStyleguide);
 
   useEffect(() => {
@@ -37,6 +39,7 @@ const StyleguideProvider = ({ children }) => {
         styleguide,
         setStyleguide,
         responsive,
+        maxWidth,
       }}>
       {children}
     </StyleguideContext.Provider>

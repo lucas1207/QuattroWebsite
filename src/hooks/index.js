@@ -5,7 +5,7 @@ import { StyleguideProvider } from "./styleguide";
 
 const Provider = ({ children }) => (
   <SafeAreaProvider>
-    <StyleguideProvider>
+        <StyleguideProvider>
       {children}
     </StyleguideProvider>
   </SafeAreaProvider>
