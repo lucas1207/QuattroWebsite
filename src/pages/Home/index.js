@@ -6,17 +6,13 @@ import { useStyleguide } from '../../hooks/styleguide';
 import Header from '../../components/Header';
 import Carrousel from './components/Carrousel';
 import AboutUs from './components/AboutUs';
+import Footer from '../../components/Footer';
+import FormContato from '../../components/Contact'
 
 const Home = () => {
 
   const {styleguide, responsive} = useStyleguide();
   const styles = useMemo(() => createStyles(styleguide), [styleguide]);
-
-
-
-  
-
-
 
   return (
 
@@ -25,6 +21,8 @@ const Home = () => {
     {/* <Carrousel/> */}
     <View style={{height: 800, width: '100%', backgroundColor: 'red'}}/>
     <AboutUs/>
+    <FormContato/>
+    <Footer/>
   </View>
 
   );
