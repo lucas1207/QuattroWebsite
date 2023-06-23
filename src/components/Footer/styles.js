@@ -5,10 +5,11 @@ export const createStyles = (styleGuide) => StyleSheet.create ({
  container: {
    width: '100%',
    height: 70,
+   padding:10,
    alignItems:'center',
    justifyContent:'space-around',
-   backgroundColor: styleGuide.colors.backgroundSecondary,
-   position:'fixed',
+   backgroundColor: styleGuide.colors.backgroundThird,
+   position:'relative',
    left:0,
    bottom:0,
    right:0,
