@@ -12,7 +12,9 @@ const StyleguideProvider = ({ children }) => {
     return LIGHT_COLORS;
   }, []);
 
-  const initialStyleguide = {};
+  const initialStyleguide = {
+    maxWidth: 1300
+  };
 
   initialStyleguide.colors = colors;
 

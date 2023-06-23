@@ -5,7 +5,7 @@ export const createStyles = (styleguide) =>
     viewHelp: {
       flexDirection: "row",
       alignItems: "center",
-      marginBottom: 100,
+     marginBottom: 100, 
     },
 
     viewLine: {

@@ -40,7 +40,7 @@ function Help() {
 
       </View>
 
-      <View style={{height: 400}}/>
+    
     </>
   );
 }
