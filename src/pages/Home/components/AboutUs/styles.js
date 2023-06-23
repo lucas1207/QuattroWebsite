@@ -6,12 +6,14 @@ export const createStyles = (styleguide) =>
       width: "100%",
       backgroundColor: styleguide.colors.backgroundSecondary,
       alignItems: "center",
+     
     },
 
     contentContainer: {
       width: "100%",
       paddingHorizontal: 20,
       maxWidth: styleguide.maxWidth,
+      
     },
 
     textAbout: {

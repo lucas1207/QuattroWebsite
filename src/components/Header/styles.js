@@ -5,7 +5,8 @@ export const createStyles = (styleGuide) => StyleSheet.create ({
  container: {
    width: '100%',
    height: 60,
- 
+   position: 'fixed',
+   top: 0,
    backgroundColor: styleGuide.colors.backgroundPrimary,
    shadowColor: '#000000',
    shadowOpacity: 0.25,
