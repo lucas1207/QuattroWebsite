@@ -79,6 +79,7 @@ export const createStyles = (styleguide) => StyleSheet.create ({
   alignSelf: 'flex-start',
   flexDirection: 'row',
   gap: 10,
+  marginBottom: 30,
  },
 
  ball: {

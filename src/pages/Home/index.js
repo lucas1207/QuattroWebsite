@@ -7,6 +7,7 @@ import Header from "../../components/Header";
 import Carrousel from "./components/Carrousel";
 import AboutUs from "./components/AboutUs";
 import Depoiments from "./components/Depoiments";
+import Footer from "../../components/Footer";
 
 const Home = () => {
   const { styleguide, responsive } = useStyleguide();
@@ -15,11 +16,13 @@ const Home = () => {
   return (
     <View style={styles.container}>
       {/* <Carrousel/> */}
+    
       <View style={{ height: 800, width: "100%", backgroundColor: "red" }} />
+      <Header />
       <AboutUs />
      
       <Depoiments />
-      <Header />
+      <Footer />
     </View>
   );
 };
