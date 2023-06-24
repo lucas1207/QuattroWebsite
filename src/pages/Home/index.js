@@ -18,7 +18,9 @@ const Home = () => {
   return (
     <View style={styles.container}>
       {/* <Carrousel/> */}
+    
       <View style={{ height: 800, width: "100%", backgroundColor: "red" }} />
+      <Header />
       <AboutUs />
       <Depoiments />
       <Patrocinadores/>
