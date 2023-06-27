@@ -11,6 +11,7 @@ export const createStyles = (styleGuide) => StyleSheet.create ({
    shadowColor: '#000000',
    shadowOpacity: 0.25,
    alignItems: 'center',
+   zIndex: 10,
   
    shadowRadius: 12,
    shadowOffset: {

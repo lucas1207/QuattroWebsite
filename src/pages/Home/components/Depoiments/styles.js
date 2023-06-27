@@ -1,100 +1,100 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 
-export const createStyles = (styleguide) => StyleSheet.create ({
- container: {
-   width: '100%',
-  alignItems: 'center',
-  justifyContent: 'center',
-  backgroundColor: 'red' 
- },
+export const createStyles = (styleGuide) => StyleSheet.create({
+  container: {
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'red',
+  },
 
- backgroundImage: {
-  height: '100%',
-  width: '100%',
-  position: 'absolute',
-  left: 0,
-  top: 0,
-  resizeMode: 'cover'
- },
+  backgroundImage: {
+    height: '100%',
+    width: '100%',
+    position: 'absolute',
+    left: 0,
+    top: 0,
+    resizeMode: 'cover'
+  },
 
- viewFilter: {
-  height: '100%',
-  width: '100%',
-  position: 'absolute',
-  left: 0,
-  top: 0,
-  backgroundColor: '#003941',
-  opacity: 0.85
- },
+  viewFilter: {
+    height: '100%',
+    width: '100%',
+    position: 'absolute',
+    left: 0,
+    top: 0,
+    backgroundColor: '#003941',
+    opacity: 0.85
+  },
 
- viewContent: {
-  maxWidth: styleguide.maxWidth,
-  width: "100%",
 
-  paddingHorizontal: 20,
-  alignSelf: 'center',
-  alignItems: 'center',
- },
+  viewContent: {
+    zIndex: 3,
+    maxWidth: styleGuide.maxWidth,
+    width: "100%",
 
- textTitle: {
-  color: 'white',
-  fontFamily: 'Medium',
-  fontSize: 38,
- 
-  marginBottom: 15,
- },
- textSubtitle: {
-  color: 'white',
-  fontFamily: 'Medium',
-  fontSize: 18,
-  marginBottom: 90
- },
+    paddingHorizontal: 20,
+    alignSelf: 'center',
+    alignItems: 'center',
+  },
 
- textDepoiments: {
-  fontFamily: 'Regular',
-  fontSize: 30,
-  lineHeight: 45,
-  color:'white',
-  marginBottom: 80,
- },
+  textTitle: {
+    color: 'white',
+    fontFamily: 'Medium',
+    fontSize: 38,
 
- textAuthor: {
-  fontFamily: 'Regular',
-  fontSize: 18,
-  color: 'white',
-  marginBottom: 10,
-  alignSelf: 'flex-start'
- },
- textOcupation: {
-  fontFamily: 'Regular',
-  fontSize: 18,
-  color: 'white',
-  marginBottom: 30,
-  alignSelf: 'flex-start'
- },
+    marginBottom: 15,
+  },
+  textSubtitle: {
+    color: 'white',
+    fontFamily: 'Medium',
+    fontSize: 18,
+    marginBottom: 90
+  },
 
- viewBalls: {
-  alignSelf: 'flex-start',
-  flexDirection: 'row',
-  gap: 10,
-  marginBottom: 30,
- },
+  textDepoiments: {
+    fontFamily: 'Regular',
+    fontSize: 30,
+    lineHeight: 45,
+    color: 'white',
+    marginBottom: 80,
+  },
 
- ball: {
-  height: 12,
-  width: 12,
-  backgroundColor: styleguide.colors.backgroundPrimary,
-  borderRadius: 10,
- },
+  textAuthor: {
+    fontFamily: 'Regular',
+    fontSize: 18,
+    color: 'white',
+    marginBottom: 10,
+    alignSelf: 'flex-start'
+  },
+  textOcupation: {
+    fontFamily: 'Regular',
+    fontSize: 18,
+    color: 'white',
+    marginBottom: 30,
+    alignSelf: 'flex-start'
+  },
 
- imageTriangle: {
-  width: '100%',
-  zIndex: 3,
+  viewBalls: {
+    alignSelf: 'flex-start',
+    flexDirection: 'row',
+    gap: 10,
+  },
 
-  
- }
+  ball: {
+    height: 12,
+    width: 12,
+    backgroundColor: styleGuide.colors.backgroundPrimary,
+    borderRadius: 10,
+  },
 
- 
+  imageTriangle: {
+    width: '100%',
+    zIndex: 3,
+
+  }
+
+
 
 })
