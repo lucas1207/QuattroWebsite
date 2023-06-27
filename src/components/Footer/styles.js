@@ -9,10 +9,6 @@ export const createStyles = (styleGuide) => StyleSheet.create ({
    alignItems:'center',
    justifyContent:'space-around',
    backgroundColor: styleGuide.colors.backgroundThird,
-   position:'relative',
-   left:0,
-   bottom:0,
-   right:0,
  },
 
  contentContainer: {

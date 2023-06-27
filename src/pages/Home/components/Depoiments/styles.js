@@ -6,7 +6,7 @@ export const createStyles = (styleguide) => StyleSheet.create ({
    width: '100%',
   alignItems: 'center',
   justifyContent: 'center',
-
+  backgroundColor: 'red' 
  },
 
  backgroundImage: {
@@ -29,7 +29,6 @@ export const createStyles = (styleguide) => StyleSheet.create ({
  },
 
  viewContent: {
-  zIndex: 3,
   maxWidth: styleguide.maxWidth,
   width: "100%",
 
@@ -92,6 +91,7 @@ export const createStyles = (styleguide) => StyleSheet.create ({
  imageTriangle: {
   width: '100%',
   zIndex: 3,
+
   
  }
 

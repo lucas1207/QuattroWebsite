@@ -14,6 +14,8 @@ function AboutUs() {
   const { width } = useWindowDimensions();
   const styles = useMemo(() => createStyles(styleguide), [styleguide]);
 
+  
+
   return (
     <View
       style={{
@@ -32,10 +34,13 @@ function AboutUs() {
       </View>
       <Image
         source={Rectangle}
-        style={{
-          height: responsive === "web" ? 167 : 70,
-          bottom: responsive === "web" ? -167 : -70,
-        }}
+        style={
+        
+          {
+            height: responsive === "web" ? 167 : 70,
+            bottom: responsive === "web" ? -167 : -70,
+          }
+        }
       />
     </View>
   );

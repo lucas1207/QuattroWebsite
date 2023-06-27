@@ -16,7 +16,6 @@ const Header = () => {
   const {styleguide, responsive, maxWidth} = useStyleguide();
   const styles = useMemo(() => createStyles(styleguide), [styleguide]);
 
-
   
 
   const tabs = [
@@ -46,6 +45,8 @@ const Header = () => {
           <Pressable style={styles.buttonQuattro}>
             <Image source={LogoQuattro} style={styles.logoQuattro}></Image>
           </Pressable>
+
+
 
          {responsive === 'web' ? 
          

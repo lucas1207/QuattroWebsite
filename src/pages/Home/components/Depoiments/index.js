@@ -16,9 +16,13 @@ const Depoiments = () => {
     <View
       style={[
         styles.container,
-        { paddingTop: responsive === "web" ? 167 : 70 },
+        { paddingTop: responsive === "web" ? 167 : 70,
+   },
       ]}
     >
+      <View style={{flexDirection: 'row', zIndex:  2}}>
+
+    
       <View style={[styles.viewContent]}>
         <Text style={styles.textTitle}>Depoimentos</Text>
         <Text style={styles.textSubtitle}>
@@ -55,9 +59,11 @@ const Depoiments = () => {
         </View>
       </View>
 
+      </View>
+
       <Image style={[styles.imageTriangle,{
         height: responsive === 'web' ? 167 : 70,
-        
+
       }]} source={Triangle}/>
       <Image source={Background} style={styles.backgroundImage} />
       <View style={styles.viewFilter} />
