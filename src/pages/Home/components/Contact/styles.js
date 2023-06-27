@@ -2,12 +2,13 @@ import { StyleSheet } from "react-native";
 
 export const createStyles = (styleGuide) => StyleSheet.create ({
   container:{
-    width: '100%',
+    width: '80%',
+    maxWidth: styleGuide.maxWidth,
     alignItems: 'space-around',
     backgroundColor: styleGuide.colors.backgroundPrimary,
     flexDirection: 'row',
-    paddingHorizontal: 200,
-    paddingVertical: 150
+    paddingVertical: 150,
+    alignSelf: 'center'
   },
 
   textTitle:{
@@ -31,6 +32,9 @@ export const createStyles = (styleGuide) => StyleSheet.create ({
     width:'60%',
     height: 600,
     backgroundColor:'white',
+    alignItems: 'center',
+    alignContent: 'center',
+    justifyContent: 'space-around',
 
     shadowColor: '#000',
     shadowOpacity: 0.45,
@@ -40,5 +44,20 @@ export const createStyles = (styleGuide) => StyleSheet.create ({
       height: 3,
     }
   },
+
+  button:{
+    width: 240,
+    height: 50,
+    borderRadius: 15,
+    backgroundColor: '#5fbfcb',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+
+  buttonText:{
+    color: '#fff',
+    fontFamily: 'Medium',
+    fontSize: 16,
+  }
 
 })
