@@ -1,12 +1,12 @@
 import { StyleSheet } from 'react-native';
 
 
-export const createStyles = (styleGuide) => StyleSheet.create({
+export const createStyles = (styleGuide, opacity) => StyleSheet.create({
   container: {
     width: '100%',
-    alignItems: 'center',
+ 
     justifyContent: 'center',
-    backgroundColor: 'red',
+  
   },
 
   backgroundImage: {
@@ -57,7 +57,9 @@ export const createStyles = (styleGuide) => StyleSheet.create({
     fontFamily: 'Regular',
     fontSize: 30,
     lineHeight: 45,
+    opacity,
     color: 'white',
+    minHeight: 150,
     marginBottom: 80,
   },
 
@@ -65,6 +67,7 @@ export const createStyles = (styleGuide) => StyleSheet.create({
     fontFamily: 'Regular',
     fontSize: 18,
     color: 'white',
+    opacity,
     marginBottom: 10,
     alignSelf: 'flex-start'
   },
@@ -72,6 +75,7 @@ export const createStyles = (styleGuide) => StyleSheet.create({
     fontFamily: 'Regular',
     fontSize: 18,
     color: 'white',
+    opacity,
     marginBottom: 30,
     alignSelf: 'flex-start'
   },
@@ -93,8 +97,20 @@ export const createStyles = (styleGuide) => StyleSheet.create({
     width: '100%',
     zIndex: 3,
 
+  },
+
+  viewArrow: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+
+
+  buttonArrow: {
+    height: 60,
+    width: 60,
+    justifyContent: 'center',
+    alignItems: 'center'
   }
-
-
 
 })

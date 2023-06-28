@@ -1,5 +1,5 @@
 
-import React, { useCallback, useMemo } from 'react';
+import React, { useCallback, useEffect, useMemo } from 'react';
 import { Pressable, View,Image,Text } from 'react-native';
 
 import {createStyles} from './styles';
@@ -10,13 +10,15 @@ import LogoQuattro from '../../assets/imgs/LogoQuattro.png'
 import Linkedin from '../../assets/svgs/linkedin';
 import Facebook from '../../assets/svgs/facebook';
 import Youtube from '../../assets/svgs/youtube';
+import { usePositions } from '../../hooks/positions';
 
-const Header = () => {
+const Header = ({ref}) => {
 
   const {styleguide, responsive, maxWidth} = useStyleguide();
   const styles = useMemo(() => createStyles(styleguide), [styleguide]);
 
-  
+  const {positions} = usePositions()
+
 
   const tabs = [
     "Portfolio",
@@ -26,16 +28,22 @@ const Header = () => {
   ]
 
 
+ console.log(positions.aboutUs)
+
+ 
+
 
   const handleButtonPress = useCallback((item)=>{
 
+  
     switch(item) {
       case 'Portfolio' : return console.log('portfolio')
-      case 'Sobre' : return console.log('Sobre')
-      case 'Patrocinadores' :return console.log('Patrocinadores')
-      case 'Contato' :return console.log('Contato')
+      case 'Sobre' :  return window.scrollTo(0,positions.aboutUs - 100);
+
+      case 'Patrocinadores' :return window.scrollTo(0,positions.sponsors);
+      case 'Contato' :return  window.scrollTo(0,positions.contact);
     }
-  },[])
+  },[positions])
 
   return (
 
@@ -51,8 +59,8 @@ const Header = () => {
          {responsive === 'web' ? 
          
          <View style={styles.viewLinks}>
-             {tabs.map((item)=> (
-                <Pressable onPress={()=>{handleButtonPress(item)}}>
+             {tabs.map((item,index)=> (
+                <Pressable key={index} onPress={()=>{handleButtonPress(item)}}>
                   <Text style={styles.textButton}>{item}</Text>
                 </Pressable>
              ))}

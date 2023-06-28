@@ -1,5 +1,5 @@
-import React, { useMemo } from "react";
-import { View, Text, Image } from "react-native";
+import React, { useMemo, useRef } from "react";
+import { View, Text, Image, ScrollView } from "react-native";
 
 import { createStyles } from "./styles";
 import { useStyleguide } from "../../hooks/styleguide";
@@ -12,21 +12,21 @@ import Footer from "../../components/Footer";
 import FaleConosco from "../Home/components/Contact"
 
 const Home = () => {
-  const { styleguide, responsive } = useStyleguide();
+  const { styleguide } = useStyleguide();
   const styles = useMemo(() => createStyles(styleguide), [styleguide]);
 
+
   return (
-    <View style={styles.container}>
-      {/* <Carrousel/> */}
+    <View  style={styles.container}>
+      <Carrousel/>
     
-      <View style={{ height: 800, width: "100%", backgroundColor: "red" }} />
       <Header />
       <AboutUs />
       <Depoiments />
       <Patrocinadores/>
       <FaleConosco/>
       <Footer />
-      <Header />
+      <Header  />
     </View>
   );
 };

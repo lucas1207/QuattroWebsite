@@ -4,6 +4,7 @@ import { View, Text, Pressable } from 'react-native';
 import {createStyles} from './styles';
 import { useStyleguide } from '../../../../hooks/styleguide';
 import Input from '../../../../components/Input';
+import { usePositions } from '../../../../hooks/positions';
 
 const Contato = () => {
 
@@ -11,11 +12,13 @@ const Contato = () => {
   const [email, setEmail] = useState('');
   const [mensagem, setMensagem] = useState('');
 
+  const {setPositions} = usePositions()
+
   const {styleguide, responsive} = useStyleguide();
   const styles = useMemo(() => createStyles(styleguide), [styleguide]);
 
   return (
-  <View style={styles.container}>
+  <View onLayout={(e)=>{setPositions((prevState)=> {return {...prevState,contact: e.nativeEvent.layout.y}})}} style={styles.container}>
     <View style={styles.containerLeft}>
       <Text style={styles.textTitle}>
         Fale Conosco

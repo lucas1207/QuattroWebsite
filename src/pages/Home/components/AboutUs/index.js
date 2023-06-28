@@ -8,16 +8,18 @@ import Description from "./Description";
 import Team from "./Team";
 import Help from "./Help";
 import Rectangle from "../../../../assets/imgs/RectangleGray.png";
+import { usePositions } from "../../../../hooks/positions";
 
 function AboutUs() {
   const { styleguide, maxWidth, responsive } = useStyleguide();
-  const { width } = useWindowDimensions();
+  const {setPositions} = usePositions()
   const styles = useMemo(() => createStyles(styleguide), [styleguide]);
 
   
 
   return (
-    <View
+    <View 
+    onLayout={(e)=>{setPositions((prevState)=> {return {...prevState,aboutUs: e.nativeEvent.layout.y}})}}
       style={{
         zIndex: 10,
         backgroundColor: styleguide.colors.backgroundSecondary,

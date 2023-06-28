@@ -12,6 +12,7 @@ import {
 
 import Provider from './src/hooks';
 import Home from './src/pages/Home'
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 export default function App() {
 
@@ -29,7 +30,10 @@ export default function App() {
 
   return (
     <Provider>
+      <GestureHandlerRootView>
       <Home/>
+      </GestureHandlerRootView>
+  
     </Provider>
   );
 }
