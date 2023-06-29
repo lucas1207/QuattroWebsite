@@ -2,13 +2,14 @@ import { StyleSheet } from "react-native";
 
 export const createStyles = (styleGuide) => StyleSheet.create ({
   container:{
-    width: '80%',
+    width: '70%',
     maxWidth: styleGuide.maxWidth,
     alignItems: 'space-around',
     backgroundColor: styleGuide.colors.backgroundPrimary,
     flexDirection: 'row',
     paddingVertical: 150,
-    alignSelf: 'center'
+    alignSelf: 'center',
+
   },
 
   textTitle:{
@@ -23,13 +24,29 @@ export const createStyles = (styleGuide) => StyleSheet.create ({
   },
 
   imgPlaceHolder:{
-    width: 600,
-    height: 450,
+    width: 500,
+    height: 350,
     backgroundColor: styleGuide.colors.backgroundThird
   },
 
   containerRight:{
     width:'60%',
+    backgroundColor:'white',
+    alignItems: 'center',
+    alignContent: 'center',
+    justifyContent: 'space-around',
+    bottom:50,
+
+    shadowColor: '#000',
+    shadowOpacity: 0.45,
+    shadowRadius: 12,
+    shadowOffset: {
+      width: 3,
+      height: 3,
+    }
+  },
+  containerRightMobile:{
+    width:'100%',
     height: 600,
     backgroundColor:'white',
     alignItems: 'center',
@@ -49,6 +66,7 @@ export const createStyles = (styleGuide) => StyleSheet.create ({
     width: 240,
     height: 50,
     borderRadius: 15,
+    marginVertical:10,
     backgroundColor: '#5fbfcb',
     justifyContent: 'center',
     alignItems: 'center'

@@ -1,4 +1,3 @@
-
 import React, { useCallback, useEffect, useMemo } from 'react';
 import { Pressable, View,Image,Text } from 'react-native';
 

@@ -19,14 +19,17 @@ const Contato = () => {
 
   return (
   <View onLayout={(e)=>{setPositions((prevState)=> {return {...prevState,contact: e.nativeEvent.layout.y}})}} style={styles.container}>
-    <View style={styles.containerLeft}>
-      <Text style={styles.textTitle}>
-        Fale Conosco
-      </Text>
-      <View style={styles.imgPlaceHolder}/>
-    </View>
+      {responsive === "web" && (
+        <View style={styles.containerLeft}>
+          <Text style={styles.textTitle}>
+            Fale Conosco
+          </Text>
+          <View style={styles.imgPlaceHolder}/>
+        </View>
+      )}
 
-    <View style={styles.containerRight}>
+    {responsive === "web" && (
+      <View style={styles.containerRight}>
       <Input 
         title = 'Nome'
         value = {name}
@@ -51,6 +54,36 @@ const Contato = () => {
         <Text style={styles.buttonText}>Enviar</Text>
       </Pressable>
     </View>
+    )}
+    
+    {responsive === "mobile" && (
+      <View style={styles.containerRightMobile}>
+      <Input 
+        title = 'Nome'
+        value = {name}
+        setValue = {setName}
+      />
+      <Input 
+        title = 'E-mail'
+        value = {email}
+        setValue={setEmail}
+      />
+      <Input 
+        multiline = {true}
+        title = 'Mensagem'
+        value={mensagem}
+        setValue={setMensagem}
+      />
+
+      <Pressable 
+        style={styles.button}
+        onPress={()=> alert('Mensagem enviada! Obrigado.')}
+        >
+        <Text style={styles.buttonText}>Enviar</Text>
+      </Pressable>
+    </View>
+    )}
+
   </View>
   );
 }

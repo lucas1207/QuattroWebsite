@@ -15,7 +15,6 @@ export const createStyles = (styleGuide, multiline) => StyleSheet.create ({
     borderRadius: 5,
     outlineStyle: 'none',
     height: multiline ? 300 : 50,
-    paddingHorizontal:10,
   },
 
   textInput:{
