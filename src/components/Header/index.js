@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useMemo } from 'react';
-import { Pressable, View,Image,Text } from 'react-native';
+import { Pressable, View,Image,Text, Linking } from 'react-native';
 
 import {createStyles} from './styles';
 import { useStyleguide } from '../../hooks/styleguide';
@@ -69,13 +69,22 @@ const Header = ({ref}) => {
          }
 
          {responsive === 'web' ?   <View style={styles.viewSocialMedia}>
-                <Pressable style={styles.buttonSocialMedia}>
+                <Pressable 
+                  style={styles.buttonSocialMedia}
+                  onPress={() => {Linking.openURL('https://www.facebook.com/quattroprojetos')}}  
+                >
                   <Facebook/>
                 </Pressable >
-                <Pressable  style={styles.buttonSocialMedia}>
+                <Pressable  
+                  style={styles.buttonSocialMedia}
+                  onPress={() => {Linking.openURL('https://www.linkedin.com/company/quattro-projetos')}}  
+                >
                   <Linkedin />
                 </Pressable>
-                <Pressable  style={styles.buttonSocialMedia}>
+                <Pressable  
+                  style={styles.buttonSocialMedia}
+                  onPress={() => {Linking.openURL('https://www.youtube.com/user/QuattroProjetos')}}
+                >
                   <Youtube/>
                 </Pressable>
           </View> : <Pressable style={{height: 50, width: 50, borderWidth: 1}}/>}
