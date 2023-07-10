@@ -4,6 +4,7 @@ export const createStyles = (styleGuide) => StyleSheet.create ({
   container:{
     width: '70%',
     maxWidth: styleGuide.maxWidth,
+
     alignItems: 'space-around',
     backgroundColor: styleGuide.colors.backgroundPrimary,
     flexDirection: 'row',
@@ -16,6 +17,7 @@ export const createStyles = (styleGuide) => StyleSheet.create ({
     color: "#333",
     fontFamily: 'Medium',
     fontSize: 32,
+
     padding: 20
   },
   
@@ -30,13 +32,9 @@ export const createStyles = (styleGuide) => StyleSheet.create ({
   },
 
   containerRight:{
-    width:'60%',
     backgroundColor:'white',
     alignItems: 'center',
-    alignContent: 'center',
     justifyContent: 'space-around',
-    bottom:50,
-
     shadowColor: '#000',
     shadowOpacity: 0.45,
     shadowRadius: 12,
@@ -45,22 +43,7 @@ export const createStyles = (styleGuide) => StyleSheet.create ({
       height: 3,
     }
   },
-  containerRightMobile:{
-    width:'100%',
-    height: 600,
-    backgroundColor:'white',
-    alignItems: 'center',
-    alignContent: 'center',
-    justifyContent: 'space-around',
 
-    shadowColor: '#000',
-    shadowOpacity: 0.45,
-    shadowRadius: 12,
-    shadowOffset: {
-      width: 3,
-      height: 3,
-    }
-  },
 
   button:{
     width: 240,
@@ -76,6 +59,7 @@ export const createStyles = (styleGuide) => StyleSheet.create ({
     color: '#fff',
     fontFamily: 'Medium',
     fontSize: 16,
+   
   }
 
 })

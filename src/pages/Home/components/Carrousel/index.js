@@ -19,7 +19,7 @@ function Carrousel() {
   const carouselRef = useRef();
   const { width } = useWindowDimensions();
   const styles = useMemo(() => createStyles(styleguide), [styleguide]);
-  const [currentIndex, setCurrentIndex] = useState(0)
+
 
   const data = [ {
     title: 'Teste 1',
@@ -51,6 +51,7 @@ function Carrousel() {
 
   const handleButtonPress = () => {
     carouselRef?.current.prev();
+    
   };
 
 
@@ -109,6 +110,8 @@ function Carrousel() {
     );
   };
 
+ 
+
   return (
     <View style={styles.container}>
       <Carousel
@@ -121,6 +124,7 @@ function Carrousel() {
         autoPlayReverse
         snapEnabled={false}
         enabled={false}
+        autoPlayInterval={100}
         mode="parallax"
         modeConfig={{
           parallaxScrollingOffset: 190,
