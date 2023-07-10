@@ -1,11 +1,11 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { Animated, View, TextInput } from 'react-native';
+import { Animated, View, TextInput, Text } from 'react-native';
 
 import {createStyles} from './styles';
 import { useStyleguide } from '../../hooks/styleguide';
 
 
-const Input = ({title, value, setValue, multiline = false}) => {
+const Input = ({title, value, setValue, multiline = false, error = false, textError}) => {
 
   const [positionX, setPositionX] = useState(new Animated.Value(15))
   const [positionY, setPositionY] = useState(new Animated.Value(39))
@@ -33,13 +33,15 @@ const Input = ({title, value, setValue, multiline = false}) => {
 
     <Animated.Text style={[styles.textInput,{transform: [{translateY: positionY}, {translateX: positionX}],}]}>{title}</Animated.Text>
 
-    <TextInput style={styles.input}
+    <TextInput style={[styles.input,{ borderColor: error ? styleguide.colors.quattroRed :'#8b8b8b', }]}
       value= {value}
       onChangeText={(text)=>{setValue(text)}}
       multiline = {multiline}
       onFocus={()=>Focus()}
       onBlur={()=> value === '' ? Blur() : null}
     />
+
+    {error && <Text style={styles.textError}>{textError}</Text>}
 
   </View>
 

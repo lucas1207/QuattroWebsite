@@ -26,9 +26,11 @@ export const createStyles = (styleGuide) => StyleSheet.create ({
   },
 
   imgPlaceHolder:{
-    width: 500,
-    height: 350,
-    backgroundColor: styleGuide.colors.backgroundThird
+    width: 600 ,
+   
+    resizeMode:'cover',
+    height: 400,
+   
   },
 
   containerRight:{

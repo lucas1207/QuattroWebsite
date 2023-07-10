@@ -10,18 +10,26 @@ export const createStyles = (styleGuide, multiline) => StyleSheet.create ({
 
   input:{
     width:'100%',
-    borderColor: '#8b8b8b',
     borderWidth: 2,
     paddingLeft: 20,
     fontFamily: 'Regular',
     borderRadius: 5,
     outlineStyle: 'none',
     height: multiline ? 300 : 50,
+    paddingTop: multiline ? 10 : 0,
   },
 
   textInput:{
     alignSelf: 'flex-start',
     padding: 5,
     fontFamily: 'Regular'
+  },
+
+
+  textError: {
+    color: styleGuide.colors.quattroRed,
+    alignSelf: 'flex-start',
+    fontFamily:'Regular',
+    paddingLeft: 10
   }
 })
