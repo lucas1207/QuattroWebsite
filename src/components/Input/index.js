@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { Animated, View, TextInput } from 'react-native';
 
 import {createStyles} from './styles';
@@ -20,6 +20,12 @@ const Input = ({title, value, setValue, multiline = false}) => {
   const Blur = () => {
     Animated.timing(positionY,{toValue:39, duration:200, useNativeDriver:true}).start()
   }
+
+  useEffect(()=>{
+    if(value !=='') {
+      Focus()
+    }
+  },[value])
 
   return (
 
