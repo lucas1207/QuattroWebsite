@@ -5,45 +5,39 @@ export const createStyles = (styleGuide) => StyleSheet.create ({
  container: {
    width: '100%',
    height: 70,
-   padding:10,
+   padding:15,
+   flexDirection:'row',
    alignItems:'center',
    justifyContent:'space-around',
    backgroundColor: styleGuide.colors.backgroundThird,
  },
-
- contentContainer: {
-    width: '100%',
-    height: '100%',
-    maxWidth: 1300,
-    justifyContent: 'space-between',
-    flexDirection: 'row',
+ buttonQuattro:{
+  height: 50,
+  width: 190,
  },
-
- viewSocialMedia: {
-   height: 60,
-   width:190,
-   flexDirection: 'row',
-   paddingLeft: 20,
-   justifyContent: 'flex-end',
-   alignItems: 'center',
+ logoQuattro:{
+  height: '100%',
+  width: '100%',
+  resizeMode: 'contain'
  },
-
- buttonSocialMedia: {
-   marginLeft: 20,
- },
-
- caixaTextoFooter:{
-  width:190,
-  paddingHorizontal: 10,
-  flexDirection: 'row',
-  alignItems:'center',
- },
- 
- textButton: {
-  fontFamily: 'Regular',
-  marginRight: 50,
+ textFooter:{
+  fontFamily:'Regular',
   fontSize: 12,
-  color: styleGuide.colors.fontPrimary
+  color: styleGuide.colors.fontPrimary,
+  marginBottom:2
  },
-
+ buttonTopo:{
+  width:90,
+  height:50,
+  borderRadius:15,
+  backgroundColor:styleGuide.colors.quattroLightBlue,
+  justifyContent: 'center',
+  alignItems:'center',
+  textAlign:'center',
+ },
+ textButtonTopo:{
+  fontFamily:'Medium',
+  fontSize: 14,
+  color: '#fff',
+ }
 })

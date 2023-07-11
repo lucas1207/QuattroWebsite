@@ -1,10 +1,11 @@
 
-import React, { useCallback, useMemo } from 'react';
-import { Pressable, View, Image, Text } from 'react-native';
+import React, { useState, useMemo } from 'react';
+import { Pressable, View, Image, Text, ScrollView } from 'react-native';
 
 import { createStyles } from './styles';
 import { useStyleguide } from '../../hooks/styleguide';
 
+import LogoQuattro from '../../assets/imgs/LogoQuattro.png'
 
 import Linkedin from '../../assets/svgs/linkedin';
 import Facebook from '../../assets/svgs/facebook';
@@ -15,38 +16,40 @@ const Footer = () => {
   const { styleguide, responsive } = useStyleguide();
   const styles = useMemo(() => createStyles(styleguide), [styleguide]);
 
-
   return (
 
-    <View onLayout={(e) => { }} style={styles.container}>
-      <View style={styles.contentContainer}>
-
-        {responsive === 'web' ? 
-        <View style={styles.caixaTextoFooter}>
-          <View>
-            <Text style={styles.textButton}>Av. Ipiranga 7464 - Sala 823</Text>
-            <Text style={styles.textButton}>Jardim Botânico - Porto Alegre/RS</Text>
-            <Text style={styles.textButton}>CEP 91530-000</Text>
-          </View>
-          <View >
-            <Text style={styles.textButton}>Rua Antônio Comparato 218</Text>
-            <Text style={styles.textButton}>Campo Belo - São Paulo/SP</Text>
-            <Text style={styles.textButton}>CEP 04605-030</Text>
-          </View>
-        </View>
-        : null}
-
-        {responsive === 'web' ? <View style={styles.viewSocialMedia}>
-          <Pressable style={styles.buttonSocialMedia}>
-            <Facebook />
-          </Pressable >
-          <Pressable style={styles.buttonSocialMedia}>
-            <Linkedin />
-          </Pressable>
-          <Pressable style={styles.buttonSocialMedia}>
-            <Youtube />
-          </Pressable>
-        </View> : <Pressable style={{ height: 50, width: 50, berderWidth: 1 }} />}
+    <View 
+      onLayout={(e) => { }}
+      style={styles.container}
+      
+      >
+      <View>
+        <Pressable style={styles.buttonQuattro}>
+          <Image
+            source={LogoQuattro}
+            style={styles.logoQuattro}
+          ></Image>
+        </Pressable>
+      </View>
+      <View>
+        <Text style={styles.textFooter}>Av. Ipiranga 7464 - Sala 823</Text>
+        <Text style={styles.textFooter}>Jardim Botânico - Porto Alegre/RS</Text>
+        <Text style={styles.textFooter}>CEP 91530-000</Text>
+      </View>
+      <View>
+        <Text style={styles.textFooter}>Rua Antônio Comparato 218</Text>
+        <Text style={styles.textFooter}>Campo Belo - São Paulo/SP</Text>
+        <Text style={styles.textFooter}>CEP 04605-030</Text>
+      </View>
+      <View>
+        <Text style={styles.textFooter}>contato@quattroprojetos.com.br</Text>
+        <Text style={styles.textFooter}>(51) 3209-7568</Text>
+      </View>
+      <View>
+        <Pressable 
+          style={styles.buttonTopo}>
+          <Text style={styles.textButtonTopo}>Voltar ao topo</Text>
+        </Pressable>
       </View>
     </View>
 

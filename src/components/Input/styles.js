@@ -21,7 +21,7 @@ export const createStyles = (styleGuide, multiline) => StyleSheet.create ({
 
   textInput:{
     alignSelf: 'flex-start',
-    padding: 5,
+    padding: 1,
     fontFamily: 'Regular'
   },
 
