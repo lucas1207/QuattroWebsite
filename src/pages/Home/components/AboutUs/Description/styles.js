@@ -2,12 +2,9 @@ import { StyleSheet } from "react-native";
 
 export const createStyles = (styleguide) =>
   StyleSheet.create({
-  
-  
-
     textAbout: {
       fontFamily: "Medium",
-      fontSize: 42,
+      fontSize: 36,
     },
 
     viewLine: {
@@ -20,8 +17,6 @@ export const createStyles = (styleguide) =>
 
     viewText: {
       flex: 1,
-      paddingTop: 64,
-    
     },
 
     textDescription: {
@@ -29,8 +24,4 @@ export const createStyles = (styleguide) =>
       fontSize: 18,
       lineHeight: 30,
     },
-
-
-
- 
   });
