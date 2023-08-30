@@ -5,6 +5,7 @@ import {
   Text,
   Pressable,
   Image,
+  Linking,
 } from "react-native";
 import { createStyles } from "./styles";
 import { useStyleguide } from "../../../../hooks/styleguide";
@@ -14,70 +15,63 @@ import Right from "../../../../assets/svgs/right";
 import Background from "../../../../assets/imgs/exempleSlide.png";
 import { LinearGradient } from "expo-linear-gradient";
 
+import backgroundCasaDeMetal from "../../../../assets/imgs/backgroundCasaDeMetal.jpg";
+import backgroundConcurso from "../../../../assets/imgs/BackgroundConcurso.png";
+
 function Carrousel() {
   const { styleguide } = useStyleguide();
   const carouselRef = useRef();
   const { width } = useWindowDimensions();
   const styles = useMemo(() => createStyles(styleguide), [styleguide]);
 
+  const data = [
+    {
+      image: Background,
+      title: "Site em desenvolvimento",
+      description:
+        "Em breve com informações sobre projetos, concursos e cultura",
+    },
+    {
+      image: backgroundCasaDeMetal,
+      title: `"As Bacantes", Kislansky`,
+      description:
+        " A exposição expõe diferentes facetas do processo de produção de Israel Kislansky que se interconectam e aprofundam o olhar para as Bacantes: a vivência do ateliê, as experiências e histórias de sua trajetória artística e sua formação e conhecimento no campo da fundição.",
+      link: "https://casademetalcultural.com.br/atividades-culturais/as-bacantes-10-anos-de-fundicao-artistica-por-israel-kislansky/",
+    },
 
-  const data = [ {
-    title: 'Teste 1',
-    description: ' Lorem Ipsum is simply dummy text of the printing and, Lorem Ipsum issimply dummy text of the printing and , Lorem Ipsum is simply dummytext of the printing and , Lorem Ipsum is',   
-  },  {
-    title: 'Teste 2',
-    description: ' Lorem Ipsum is simply dummy text of the printing and, Lorem Ipsum issimply dummy text of the printing and , Lorem Ipsum is simply dummytext of the printing and , Lorem Ipsum is',   
-  },  {
-    title: 'Teste 3',
-    description: ' Lorem Ipsum is simply dummy text of the printing and, Lorem Ipsum issimply dummy text of the printing and , Lorem Ipsum is simply dummytext of the printing and , Lorem Ipsum is',   
-  },  {
-    title: 'Teste 4',
-    description: ' Lorem Ipsum is simply dummy text of the printing and, Lorem Ipsum issimply dummy text of the printing and , Lorem Ipsum is simply dummytext of the printing and , Lorem Ipsum is',   
-  },
-  {
-    title: 'Teste 5',
-    description: ' Lorem Ipsum is simply dummy text of the printing and, Lorem Ipsum issimply dummy text of the printing and , Lorem Ipsum is simply dummytext of the printing and , Lorem Ipsum is',   
-  },
-  {
-    title: 'Teste 6',
-    description: ' Lorem Ipsum is simply dummy text of the printing and, Lorem Ipsum issimply dummy text of the printing and , Lorem Ipsum is simply dummytext of the printing and , Lorem Ipsum is',   
-  },
-  {
-    title: 'Teste 7',
-    description: ' Lorem Ipsum is simply dummy text of the printing and, Lorem Ipsum issimply dummy text of the printing and , Lorem Ipsum is simply dummytext of the printing and , Lorem Ipsum is',   
-  }];
-
-
+    {
+      image: backgroundConcurso,
+      title: "Concurso Gastronônico",
+      description:
+        "Premiará as melhores receitas gastronômicas do Brasil que utilizem ingredientes do Pará e utensílios de alumínio.",
+      link: "https://www.alimentandonossacultura.com.br/",
+    },
+  ];
 
   const handleButtonPress = () => {
     carouselRef?.current.prev();
-    
   };
 
-
-
   const RenderItem = (item, index) => {
-  
-
-    const backgroundColor =()=> {
+    const backgroundColor = () => {
       switch (index) {
-          case 0:
-          case 4:
-            return styleguide.colors.quattroRed;
-          case 1:
-          case 5: 
-            return styleguide.colors.quattroYellow;
-          case 2:
-          case 6:
-            return styleguide.colors.quattroLightBlue;
-          case 3:
-          case 7: 
-            return styleguide.colors.quattroDarkBlue;
+        case 0:
+        case 4:
+          return styleguide.colors.quattroRed;
+        case 1:
+        case 5:
+          return styleguide.colors.quattroYellow;
+        case 2:
+        case 6:
+          return styleguide.colors.quattroLightBlue;
+        case 3:
+        case 7:
+          return styleguide.colors.quattroDarkBlue;
       }
-    }
+    };
     return (
       <View
-      key={index}
+        key={index}
         style={{
           width: "90%",
           height: 550,
@@ -85,32 +79,37 @@ function Carrousel() {
           justifyContent: "center",
         }}
       >
-        <Image source={Background} style={styles.backgroundImage} />
+        <Image source={item.image} style={styles.backgroundImage} />
         <LinearGradient
           start={[0.5, 0.5]}
           end={[1, 0.5]}
-          colors={["#000000b3", "#000000b3", "#00000000"]}
+          colors={["#000000BF", "#00000066", "#0000001A"]}
           style={styles.linearGradient}
         />
         <View style={styles.viewContent}>
           <View style={{ flexDirection: "row", alignItems: "flex-end" }}>
             <Text style={styles.title}>{item.title}</Text>
-            <View style={[styles.viewBall,{backgroundColor: backgroundColor()}]} />
+            <View
+              style={[styles.viewBall, { backgroundColor: backgroundColor() }]}
+            />
           </View>
 
-          <Text style={styles.description}>
-         {item.description}
-          </Text>
+          <Text style={styles.description}>{item.description}</Text>
 
-          <Pressable style={[styles.button,{backgroundColor: backgroundColor()}]}>
-            <Text style={styles.textButton}>SAIBA MAIS</Text>
-          </Pressable>
+          {item.link && (
+            <Pressable
+              onPress={() => {
+                Linking.openURL(item.link);
+              }}
+              style={[styles.button, { backgroundColor: backgroundColor() }]}
+            >
+              <Text style={styles.textButton}>SAIBA MAIS</Text>
+            </Pressable>
+          )}
         </View>
       </View>
     );
   };
-
- 
 
   return (
     <View style={styles.container}>

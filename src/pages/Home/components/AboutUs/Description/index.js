@@ -5,14 +5,13 @@ import { createStyles } from "./styles";
 import { useStyleguide } from "../../../../../hooks/styleguide";
 import imageExemple from "../../../../../assets/imgs/exemple1.png";
 
-
 function Description() {
   const { styleguide, maxWidth, responsive } = useStyleguide();
   const { width } = useWindowDimensions();
   const styles = useMemo(() => createStyles(styleguide), [styleguide]);
 
   const imageWidth = useMemo(() => {
-    return width * 0.3;
+    return width * 0.2;
   }, [width]);
 
   return (
@@ -37,7 +36,7 @@ function Description() {
             style={{
               width: imageWidth,
               maxWidth: 550,
-              marginRight: 100,
+              marginRight: 130,
               height: imageWidth * 1.51,
               resizeMode: "contain",
             }}
@@ -46,26 +45,20 @@ function Description() {
 
         <View style={[styles.viewText]}>
           <Text style={styles.textDescription}>
-            {"      "}Lorem Ipsum is simply dummy text of the printing and
-            typesetting industry. Lorem Ipsum has been the industry's standard
-            dummy text ever since the 1500s, when an unknown printer took a
-            galley of type and scrambled it to make a type specimen book. It has
-            survived not only five centuries, but also the leap into electronic
-            typesetting, remaining essentially unchanged. It was popularised in
-            the 1960s with the release of Letraset sheets containing Lorem Ipsum
-            passages, and more recently with desktop publishing software like
-            Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is
-            simply dummy text of the printing and typesetting industry. Lorem
-            Ipsum has been the industry's standard dummy text ever since the
-            1500s, when an unknown printer took a galley of type and scrambled
-            it to make a type specimen book. It has survived not only five
-            centuries, but also the leap into electronic typesetting, remaining
-            essentially unchanged. It was popularised in the 1960s with the
-            release of Letraset sheets containing Lorem Ipsum passages, and more
-            recently with desktop publishing software like Aldus PageMaker
-            including versions of Lorem Ipsum.Lorem Ipsum passages, and more
-            recently with desktop publishing software like Aldus PageMaker
-            including.
+            {"      "}Atuamos promovendo o acesso à cultura por meio de projetos
+            de qualidade, utilizando como ferramenta as leis de incentivo à
+            cultura. Com experiência de mais de quinze anos em consultoria e
+            execução de projetos, constam no nosso portfólio a produção de
+            livros, exposições, oficinas de arte, concertos musicais, construção
+            e manutenção de centros culturais.{"\n"}
+            {"\n"} Com nossos projetos buscamos impactar positivamente a
+            sociedade, por meio de iniciativas que contribuam para o
+            desenvolvimento social e promovam a inclusão, educação e valorização
+            da cultura, proporcionando experiências significativas ao público.
+            {"\n"}
+            {"\n"} Nosso objetivo é sermos reconhecidos como uma empresa
+            referência no setor de projetos culturais, consolidando nossa
+            posição como parceiros confiáveis e inovadores.
           </Text>
         </View>
       </View>

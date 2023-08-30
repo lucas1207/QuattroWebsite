@@ -6,7 +6,7 @@ import { useStyleguide } from "../../../../../../hooks/styleguide";
 
 import Linkedin from "../../../../../../assets/svgs/linkedin";
 import Facebook from "../../../../../../assets/svgs/facebook";
-import Youtube from "../../../../../../assets/svgs/youtube";
+import Mail from "../../../../../../assets/svgs/mail";
 
 const TeamItem = ({ name, position, avatar }) => {
   const { styleguide } = useStyleguide();
@@ -16,19 +16,17 @@ const TeamItem = ({ name, position, avatar }) => {
     <View style={styles.container}>
       <Image style={styles.image} source={avatar} />
 
-      <View style={{alignItems: 'center', bottom: 85}}>
+      <View style={{ alignItems: "center", bottom: 85 }}>
         <Text style={styles.textName}>{name}</Text>
         <Text style={styles.textPosition}>{position}</Text>
 
         <View style={styles.viewSocialMedia}>
           <Pressable style={styles.buttonSocialMedia}>
-            <Facebook />
-          </Pressable>
-          <Pressable style={styles.buttonSocialMedia}>
             <Linkedin />
           </Pressable>
+
           <Pressable style={styles.buttonSocialMedia}>
-            <Youtube />
+            <Mail />
           </Pressable>
         </View>
       </View>

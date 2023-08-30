@@ -20,32 +20,15 @@ const Depoiments = () => {
   const depoiments = [
     {
       depoiment:
-        "       Lorem 1 Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to",
-      author: "Flavio Enninger",
-      position: "CEO da Quattro Projetos",
-    },
-    {
-      depoiment: "       Lorem 2 Ipsum is simply dummy crambled it to",
-      author: "Flavio Enninger 2",
-      position: "CEO da Quattro Projetos",
+        "        Uma parceria brilhante que transforma ideias em eventos culturais inesquecíveis. Juntos, realizamos arte e encantamos corações! #EventosCulturais #ParceriaTop",
+      author: "Ana Lídia",
+      position: "CEO da Emotion Eventos",
     },
     {
       depoiment:
-        "       Lorem 3 Ipsum is simply dummy text of the nd typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to",
-      author: "Flavio Enninger 3",
-      position: "CEO da Quattro Projetos",
-    },
-    {
-      depoiment:
-        "       Lorem 4 Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to",
-      author: "Flavio Enninger 4",
-      position: "CEO da Quattro Projetos",
-    },
-    {
-      depoiment:
-        "       Lorem 5 Ipsum is simpting and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to",
-      author: "Flavio Enninger 5",
-      position: "CEO da Quattro Projetos",
+        "       Trabalhei com a Quattro como produtora e gestora de projetos durante 15 anos, em várias ações e em várias empresas. Só isso já indica que a parceria que estabelecemos foi duradoura, baseada em compromisso, entregas e a capacidade de formatar propostas que tinham significado para os stakeholders e para as comunidades abrangidas. Vida longa para a empresa.",
+      author: "Milton Rego,",
+      position: "Presidente Executivo na Abiclor",
     },
   ];
 
@@ -105,10 +88,6 @@ const Depoiments = () => {
         </View>
         <View style={[styles.viewContent]}>
           <Text style={styles.textTitle}>Depoimentos</Text>
-          <Text style={styles.textSubtitle}>
-            Sou um parágrafo. Clique aqui para editar e adicionar o seu próprio
-            texto
-          </Text>
 
           <View>
             <Animated.View
@@ -130,10 +109,9 @@ const Depoiments = () => {
           </Animated.Text>
 
           <View style={styles.viewBalls}>
-          
             {depoiments.map((item, index) => (
               <View
-              key={index}
+                key={index}
                 style={[
                   styles.ball,
                   {

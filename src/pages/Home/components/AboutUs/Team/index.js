@@ -6,6 +6,10 @@ import { useStyleguide } from "../../../../../hooks/styleguide";
 import exemple from "../../../../../assets/imgs/avatarExemple.png";
 import TeamItem from "./TeamItem";
 
+import avatarThiago from "../../../../../assets/imgs/AvatarThiago.png";
+import avatarMatheus from "../../../../../assets/imgs/AvatarMatheus.png";
+import avatarFlavio from "../../../../../assets/imgs/AvatarFlavio.png";
+
 function Team() {
   const { styleguide, responsive } = useStyleguide();
 
@@ -24,9 +28,21 @@ function Team() {
           width: "100%",
         }}
       >
-        <TeamItem avatar={exemple} name="Thiago Vazquez" position="Diretor 1" />
-        <TeamItem avatar={exemple} name="Thiago Vazquez" position="Diretor 1" />
-        <TeamItem avatar={exemple} name="Thiago Vazquez" position="Diretor 1" />
+        <TeamItem
+          avatar={avatarThiago}
+          name="Thiago Vazquez"
+          position="Gestor de Projetos"
+        />
+        <TeamItem
+          avatar={avatarFlavio}
+          name="Flávio Enninger"
+          position="Diretor"
+        />
+        <TeamItem
+          avatar={avatarMatheus}
+          name="Matheus Enninger"
+          position="Diretor de Projetos"
+        />
       </View>
     </View>
   );

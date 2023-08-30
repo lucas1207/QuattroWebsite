@@ -5,7 +5,7 @@ export const createStyles = (styleguide) =>
     viewHelp: {
       flexDirection: "row",
       alignItems: "center",
-     marginBottom: 100, 
+      marginBottom: 100,
     },
 
     viewLine: {
@@ -15,39 +15,39 @@ export const createStyles = (styleguide) =>
     },
 
     textHelp: {
-      fontSize: 30,
+      fontSize: 22,
       fontFamily: "MediumItalic",
       marginLeft: 40,
     },
 
     textHelpBold: {
-      fontSize: 30,
+      fontSize: 22,
       fontFamily: "BoldItalic",
       marginRight: 40,
     },
 
     viewInfo: {
       flexDirection: "row",
-      width: '100%',
-      justifyContent: 'space-between'
+      width: "100%",
+      justifyContent: "space-between",
     },
 
     itemInfo: {
       alignItems: "center",
       width: 350,
-      alignItems: 'center',
+      alignItems: "center",
     },
 
     textInfoBold: {
       fontFamily: "SemiBold",
-      fontSize: 45,
+      fontSize: 32,
       marginBottom: 40,
-      textAlign: 'center'
+      textAlign: "center",
     },
 
     textInfo: {
       fontFamily: "Medium",
-      fontSize: 30,
-      textAlign: 'center'
+      fontSize: 22,
+      textAlign: "center",
     },
   });

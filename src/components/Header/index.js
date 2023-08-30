@@ -27,7 +27,6 @@ const Header = ({ref}) => {
   ]
 
 
- console.log(positions.aboutUs)
 
  
 

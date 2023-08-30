@@ -82,7 +82,6 @@ const Contato = () => {
         message: mensagem
       }
   
-      console.log(templateParams)
   
       emailjs.send(serviceId,templateId, templateParams, publicKey).then(
         function (response) {
