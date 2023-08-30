@@ -4,7 +4,6 @@ export const createStyles = (styleGuide) => StyleSheet.create ({
   container:{
     width: '70%',
     maxWidth: styleGuide.maxWidth,
-
     alignItems: 'space-around',
     backgroundColor: styleGuide.colors.backgroundPrimary,
     flexDirection: 'row',
@@ -17,7 +16,6 @@ export const createStyles = (styleGuide) => StyleSheet.create ({
     color: "#333",
     fontFamily: 'Medium',
     fontSize: 32,
-
     padding: 20
   },
   
@@ -27,7 +25,6 @@ export const createStyles = (styleGuide) => StyleSheet.create ({
 
   imgPlaceHolder:{
     width: 600 ,
-   
     resizeMode:'cover',
     height: 400,
    

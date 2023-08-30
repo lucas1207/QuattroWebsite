@@ -127,7 +127,7 @@ const Contato = () => {
         style={[
           styles.containerRight,
           {
-            width: responsive === "mobile" ? "100%" : "50%",
+            width: responsive === "mobile" ? "100%" : "55%",
             minWidth: 450,
           },
         ]}

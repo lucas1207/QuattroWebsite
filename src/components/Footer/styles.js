@@ -4,46 +4,63 @@ import {StyleSheet} from 'react-native';
 export const createStyles = (styleGuide) => StyleSheet.create ({
  container: {
    width: '100%',
-   height: 70,
+   height: 80,
    padding:10,
+   flexDirection:'row',
    alignItems:'center',
-   justifyContent:'space-around',
+   justifyContent: 'space-evenly',
    backgroundColor: styleGuide.colors.backgroundThird,
  },
-
- contentContainer: {
-    width: '100%',
-    height: '100%',
-    maxWidth: 1300,
-    justifyContent: 'space-between',
-    flexDirection: 'row',
+ containerLogo:{
+  height: 50,
+  width: 190,
  },
-
- viewSocialMedia: {
-   height: 60,
-   width:190,
-   flexDirection: 'row',
-   paddingLeft: 20,
-   justifyContent: 'flex-end',
-   alignItems: 'center',
+ logoQuattro:{
+  height: '100%',
+  width: '100%',
+  resizeMode: 'contain'
  },
-
- buttonSocialMedia: {
-   marginLeft: 20,
+ arrowUp:{
+  height: '100%',
+  width: '100%',
+  resizeMode: 'contain'
  },
-
- caixaTextoFooter:{
-  width:190,
-  paddingHorizontal: 10,
-  flexDirection: 'row',
-  alignItems:'center',
- },
- 
- textButton: {
-  fontFamily: 'Regular',
-  marginRight: 50,
+ textFooter:{
+  fontFamily:'Regular',
   fontSize: 12,
-  color: styleGuide.colors.fontPrimary
+  color: styleGuide.colors.fontPrimary,
+  marginBottom:2,
  },
+ buttonTopo:{
+  width:90,
+  height:60,
+  borderRadius:15,
+  backgroundColor:styleGuide.colors.quattroLightBlue,
+  justifyContent: 'center',
+  alignItems:'center',
+  textAlign:'center',
+ },
+ textButtonTopo:{
+  fontFamily:'Medium',
+  fontSize: 14,
+  color: '#fff',
+ },
+ arrow:{
+  height:70
+ },
+
+ //mobile
+ containerMobile:{
+  width: '100%',
+  flexDirection:'column',
+  alignItems:'center',
+  textAlign:'center',
+  alignContent:'center',
+  padding:10,
+  backgroundColor: styleGuide.colors.backgroundThird,
+ },
+ boxMobile:{
+  marginVertical:10
+ }
 
 })
