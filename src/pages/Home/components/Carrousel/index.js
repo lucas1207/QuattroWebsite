@@ -17,12 +17,15 @@ import { LinearGradient } from "expo-linear-gradient";
 
 import backgroundCasaDeMetal from "../../../../assets/imgs/backgroundCasaDeMetal.jpg";
 import backgroundConcurso from "../../../../assets/imgs/BackgroundConcurso.png";
+import Balls from "../../../../components/Balls";
 
 function Carrousel() {
   const { styleguide } = useStyleguide();
   const carouselRef = useRef();
   const { width } = useWindowDimensions();
   const styles = useMemo(() => createStyles(styleguide), [styleguide]);
+
+  const [index, setIndex] = useState(0);
 
   const data = [
     {
@@ -50,6 +53,12 @@ function Carrousel() {
 
   const handleButtonPress = () => {
     carouselRef?.current.prev();
+
+    if (index < data.length - 1) {
+      setIndex(index + 1);
+    } else {
+      setIndex(0);
+    }
   };
 
   const RenderItem = (item, index) => {
@@ -73,8 +82,8 @@ function Carrousel() {
       <View
         key={index}
         style={{
-          width: "90%",
-          height: 550,
+          width: "95%",
+          height: 600,
           borderRadius: 32,
           justifyContent: "center",
         }}
@@ -113,27 +122,36 @@ function Carrousel() {
 
   return (
     <View style={styles.container}>
-      <Carousel
-        loop
-        width={0.93 * width}
-        height={700}
-        ref={carouselRef}
-        data={data}
-        scrollAnimationDuration={1300}
-        autoPlayReverse
-        snapEnabled={false}
-        enabled={false}
-        autoPlayInterval={100}
-        mode="parallax"
-        modeConfig={{
-          parallaxScrollingOffset: 190,
-          parallaxScrollingScale: 0.95,
-          parallaxAdjacentItemScale: 0.85,
+      <View style={{ justifyContent: "space-evenly" }}>
+        <Carousel
+          loop
+          width={0.93 * width}
+          height={700}
+          ref={carouselRef}
+          data={data}
+          scrollAnimationDuration={1300}
+          autoPlayReverse
+          snapEnabled={false}
+          enabled={false}
+          // onSnapToItem={(index) => setIndex(index)}
+          mode="parallax"
+          modeConfig={{
+            parallaxScrollingOffset: 190,
+            parallaxScrollingScale: 0.95,
+            parallaxAdjacentItemScale: 0.85,
+          }}
+          style={{ paddingLeft: 120 }}
+          renderItem={({ item, index }) => RenderItem(item, index)}
+        />
+        <Balls list={data} currentIndex={index}></Balls>
+      </View>
+      <View
+        style={{
+          flex: 1,
+          justifyContent: "center",
+          alignItems: "center",
         }}
-        style={{ paddingLeft: 120 }}
-        renderItem={({ item, index }) => RenderItem(item, index)}
-      />
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      >
         <Pressable
           onPress={() => {
             handleButtonPress();

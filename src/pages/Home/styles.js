@@ -1,20 +1,16 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from "react-native";
 
+export const createStyles = (styleGuide) =>
+  StyleSheet.create({
+    container: {
+      backgroundColor: styleGuide.colors.backgroundPrimary,
+    },
 
-export const createStyles = (styleGuide) => StyleSheet.create ({
- container: {
-   flex: 1,
-    backgroundColor: styleGuide.colors.backgroundPrimary
- },
-
- imageRectangle: {
-  borderWidth: 10,
-  width: '100%',
-  resizeMode: 'stretch',
-  position: 'absolute',
-  borderWidth: 10,
- 
-},
-
-
-})
+    imageRectangle: {
+      borderWidth: 10,
+      width: "100%",
+      resizeMode: "stretch",
+      position: "absolute",
+      borderWidth: 10,
+    },
+  });

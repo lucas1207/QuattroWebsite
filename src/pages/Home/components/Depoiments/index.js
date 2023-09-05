@@ -3,7 +3,7 @@ import { View, Image, Text, Pressable, Animated } from "react-native";
 
 import { createStyles } from "./styles";
 import { useStyleguide } from "../../../../hooks/styleguide";
-import Background from "../../../../assets/imgs/BackgroundDepoiments.png";
+import Background from "../../../../assets/imgs/paralax1.jpg";
 import Yellow from "../../../../assets/svgs/yellow";
 import Triangle from "../../../../assets/imgs/RectangleGray2.png";
 import Right from "../../../../assets/svgs/right";

@@ -1,21 +1,51 @@
-import React, { useMemo } from "react";
-import { View, Text, Image, useWindowDimensions } from "react-native";
+import React, { useEffect, useMemo, useState } from "react";
+import { View, Text, Image, useWindowDimensions, Animated } from "react-native";
 
 import { createStyles } from "./styles";
 import { useStyleguide } from "../../../../../hooks/styleguide";
-import imageExemple from "../../../../../assets/imgs/exemple1.png";
+import PhotoAboutUs from "../../../../../assets/imgs/FotoSobreNos.jpg";
+import { usePositions } from "../../../../../hooks/positions";
 
 function Description() {
-  const { styleguide, maxWidth, responsive } = useStyleguide();
+  const { styleguide, responsive } = useStyleguide();
   const { width } = useWindowDimensions();
+  const { scrollPosition } = usePositions();
   const styles = useMemo(() => createStyles(styleguide), [styleguide]);
+
+  const [hasAnimated, setHasAnimated] = useState(false);
+  const [opacity, setOpacity] = useState(new Animated.Value(0));
+  const [translateY, setTranslateY] = useState(new Animated.Value(250));
+  const [componentHeight, setComponentHeight] = useState(0);
+
+  useEffect(() => {
+    if (scrollPosition > componentHeight + 20) {
+      if (!hasAnimated) {
+        Animated.timing(translateY, {
+          toValue: 0,
+          duration: 400,
+          useNativeDriver: true,
+        }).start();
+        Animated.timing(opacity, {
+          toValue: 1,
+          duration: 800,
+          useNativeDriver: true,
+        }).start();
+        setHasAnimated(true);
+      }
+    }
+  }, [scrollPosition]);
 
   const imageWidth = useMemo(() => {
     return width * 0.2;
   }, [width]);
 
   return (
-    <>
+    <Animated.View
+      onLayout={(e) => {
+        setComponentHeight(e.nativeEvent.layout.y);
+      }}
+      style={{ opacity, transform: [{ translateY }] }}
+    >
       <View style={{ marginBottom: 80, transform: [{ translateY: -20 }] }}>
         <Text style={styles.textAbout}>Sobre nós</Text>
         <View style={styles.viewLine} />
@@ -32,7 +62,7 @@ function Description() {
       >
         {responsive === "web" && (
           <Image
-            source={imageExemple}
+            source={PhotoAboutUs}
             style={{
               width: imageWidth,
               maxWidth: 550,
@@ -62,7 +92,7 @@ function Description() {
           </Text>
         </View>
       </View>
-    </>
+    </Animated.View>
   );
 }
 

@@ -1,73 +1,72 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from "react-native";
 
-export const createStyles = (styleGuide) => StyleSheet.create({
-  container: {
-  
-    paddingTop: 150,
-    width:  '100%',
-   paddingBottom: 90,
-   flexDirection: 'row',
-  },
+export const createStyles = (styleGuide) =>
+  StyleSheet.create({
+    container: {
+      paddingTop: 150,
+      width: "100%",
 
-  backgroundImage: {
-    position: 'absolute',
-    width: '100%',
-    height: '100%',
-    resizeMode: 'cover',
-    borderRadius: 32,
-  },
+      paddingBottom: 60,
+      flexDirection: "row",
+    },
 
-  linearGradient: {
-    height: '100%',
-    width: '100%',
-    position: 'absolute',
-    borderRadius: 32, 
-  },
+    backgroundImage: {
+      position: "absolute",
+      width: "100%",
+      height: "100%",
+      resizeMode: "cover",
+      borderRadius: 32,
+    },
 
-  title: {
-    fontFamily:'Medium',
-    fontSize: 65,
-    color: 'white',
-    zIndex: 10,
-  },
+    linearGradient: {
+      height: "100%",
+      width: "100%",
+      position: "absolute",
+      borderRadius: 32,
+    },
 
-  viewContent: {
-    zIndex: 10,
-    paddingLeft: 50,
-  },
+    title: {
+      fontFamily: "Medium",
+      fontSize: 65,
+      color: "white",
+      zIndex: 10,
+    },
 
-  viewBall: {
-    height: 15,
-    width: 15,
-    bottom: 15,
-    left: 15,
-    borderRadius: 15,
-    backgroundColor: styleGuide.colors.quattroRed,
-  },
+    viewContent: {
+      zIndex: 10,
+      paddingLeft: 50,
+    },
 
-  description: {
-    fontSize: 20,
-    marginTop: 20,
-    color: 'white',
-    fontFamily: 'Regular',
-    maxWidth: '50%'
-  },
+    viewBall: {
+      height: 15,
+      width: 15,
+      bottom: 15,
+      left: 15,
+      borderRadius: 15,
+      backgroundColor: styleGuide.colors.quattroRed,
+    },
 
-  button: {
-    height: 50,
-    width: 200,
-    borderRadius: 8,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: styleGuide.colors.quattroRed,
-    marginTop: 70
-  },
+    description: {
+      fontSize: 20,
+      marginTop: 20,
+      color: "white",
+      fontFamily: "Regular",
+      maxWidth: "50%",
+    },
 
-  textButton: {
-    fontFamily: 'Medium',
-    fontSize: 18,
-    color: 'white'
-  }
+    button: {
+      height: 50,
+      width: 200,
+      borderRadius: 8,
+      justifyContent: "center",
+      alignItems: "center",
+      backgroundColor: styleGuide.colors.quattroRed,
+      marginTop: 70,
+    },
 
-
-});
+    textButton: {
+      fontFamily: "Medium",
+      fontSize: 18,
+      color: "white",
+    },
+  });

@@ -6,105 +6,91 @@ import { useStyleguide } from "../../../../hooks/styleguide";
 import Input from "../../../../components/Input";
 import { usePositions } from "../../../../hooks/positions";
 
-
-import emailjs from '@emailjs/browser';
-import imageSource from '../../../../assets/imgs/fotoContactResized.jpg'
+import emailjs from "@emailjs/browser";
+import imageSource from "../../../../assets/imgs/fotoContactResized.jpg";
 
 const Contato = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [emailError, setEmailError] = useState(false)
-  const [nameError, setNameError] = useState(false)
-  const [mensagemError, setMensagemError] = useState(false)
+  const [emailError, setEmailError] = useState(false);
+  const [nameError, setNameError] = useState(false);
+  const [mensagemError, setMensagemError] = useState(false);
 
   const [mensagem, setMensagem] = useState("");
-  const [loading, setLoading] = useState(false)
-  
+  const [loading, setLoading] = useState(false);
 
   const { setPositions } = usePositions();
 
   const { styleguide, responsive } = useStyleguide();
   const styles = useMemo(() => createStyles(styleguide), [styleguide]);
 
-
-  const publicKey = 'TfkeqHyVN2RmMXF5O'
-  const privateKey = 'KqekVAhhtSvGkCjBxwz61'
-  const serviceId = 'service_m083klh'
-  const templateId = 'template_urbjxbj'
+  const publicKey = "TfkeqHyVN2RmMXF5O";
+  const privateKey = "KqekVAhhtSvGkCjBxwz61";
+  const serviceId = "service_m083klh";
+  const templateId = "template_urbjxbj";
 
   function isValidEmail(email) {
-    
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    
+
     return emailPattern.test(email);
   }
 
   const validadeForm = () => {
-
-     
-    if(name === '') {
-      setNameError(true)
-      return false
+    if (name === "") {
+      setNameError(true);
+      return false;
     } else {
-      setNameError(false)
+      setNameError(false);
     }
 
     if (!isValidEmail(email)) {
-      setEmailError(true)
-      return false
+      setEmailError(true);
+      return false;
     } else {
-      setEmailError(false)
+      setEmailError(false);
     }
 
-
-   if(mensagem === '') {
-      setMensagemError(true)
-      return false
+    if (mensagem === "") {
+      setMensagemError(true);
+      return false;
     } else {
-      setMensagemError(false)
+      setMensagemError(false);
     }
 
-   return true
-
-   
-  }
+    return true;
+  };
 
   const handleEmail = () => {
-    
-    if(!validadeForm()) {
-      return
+    if (!validadeForm()) {
+      return;
     } else {
-      setLoading(true)
+      setLoading(true);
       let templateParams = {
-        to_email: 'enningerlucas@gmail.com',
+        to_email: "contato@quattroprojetos.com.br",
         from_name: name,
         email,
-        message: mensagem
-      }
-  
-  
-      emailjs.send(serviceId,templateId, templateParams, publicKey).then(
+        message: mensagem,
+      };
+
+      emailjs.send(serviceId, templateId, templateParams, publicKey).then(
         function (response) {
-          setEmailError(false)
-          setLoading(false)
-          setNameError(false)
-          setMensagemError(false)
-          alert('Mensagem enviada com sucesso')
-          setEmail('')
-          setName('')
-          setMensagem('')
+          setEmailError(false);
+          setLoading(false);
+          setNameError(false);
+          setMensagemError(false);
+          alert("Mensagem enviada com sucesso");
+          setEmail("");
+          setName("");
+          setMensagem("");
         },
-        function (error) { 
-          console.log('FAILED...', error);
-          setLoading(false)
-          alert('Erro ao enviar a mensagem, tente novamente')
+        function (error) {
+          console.log("FAILED...", error);
+          setLoading(false);
+          alert("Erro ao enviar a mensagem, tente novamente");
         }
-      )
+      );
     }
-
-   
-
-  }
+  };
 
   return (
     <View
@@ -113,7 +99,10 @@ const Contato = () => {
           return { ...prevState, contact: e.nativeEvent.layout.y };
         });
       }}
-      style={[styles.container,{flexDirection: responsive === 'web' ? 'row' : 'column' }]}
+      style={[
+        styles.container,
+        { flexDirection: responsive === "web" ? "row" : "column" },
+      ]}
     >
       {responsive === "web" && (
         <View style={styles.containerLeft}>
@@ -122,7 +111,9 @@ const Contato = () => {
         </View>
       )}
 
-      {responsive === 'mobile' &&   <Text style={styles.textTitle}>Fale Conosco</Text>}
+      {responsive === "mobile" && (
+        <Text style={styles.textTitle}>Fale Conosco</Text>
+      )}
       <View
         style={[
           styles.containerRight,
@@ -132,22 +123,35 @@ const Contato = () => {
           },
         ]}
       >
-        <Input textError={'* Campo obrigatório'} error={nameError}  title="Nome" value={name} setValue={setName} />
-        <Input textError={'* Email inválido'} error={emailError} title="E-mail" value={email} setValue={setEmail} />
         <Input
-        textError={'* Campo obrigatório'} 
-        error={mensagemError}
+          textError={"* Campo obrigatório"}
+          error={nameError}
+          title="Nome"
+          value={name}
+          setValue={setName}
+        />
+        <Input
+          textError={"* Email inválido"}
+          error={emailError}
+          title="E-mail"
+          value={email}
+          setValue={setEmail}
+        />
+        <Input
+          textError={"* Campo obrigatório"}
+          error={mensagemError}
           multiline={true}
           title="Mensagem"
           value={mensagem}
           setValue={setMensagem}
         />
 
-        <Pressable
-          style={styles.button}
-          onPress={() => handleEmail()}
-        >
-         {loading ? <ActivityIndicator size='small' color='white'/> :  <Text style={styles.buttonText}>Enviar</Text>}
+        <Pressable style={styles.button} onPress={() => handleEmail()}>
+          {loading ? (
+            <ActivityIndicator size="small" color="white" />
+          ) : (
+            <Text style={styles.buttonText}>Enviar</Text>
+          )}
         </Pressable>
       </View>
     </View>
