@@ -22,7 +22,7 @@ import Balls from "../../../../components/Balls";
 function Carrousel() {
   const { styleguide } = useStyleguide();
   const carouselRef = useRef();
-  const { width } = useWindowDimensions();
+  const { height, width } = useWindowDimensions();
   const styles = useMemo(() => createStyles(styleguide), [styleguide]);
 
   const [index, setIndex] = useState(0);
@@ -82,8 +82,8 @@ function Carrousel() {
       <View
         key={index}
         style={{
-          width: "95%",
-          height: 600,
+          width: "90%",
+          height: height * 0.7,
           borderRadius: 32,
           justifyContent: "center",
         }}
@@ -121,12 +121,17 @@ function Carrousel() {
   };
 
   return (
-    <View style={styles.container}>
-      <View style={{ justifyContent: "space-evenly" }}>
+    <View style={[styles.container, { height: height * 0.95 }]}>
+      <View
+        style={{
+          justifyContent: "space-evenly",
+
+          marginTop: 110,
+        }}
+      >
         <Carousel
           loop
           width={0.93 * width}
-          height={700}
           ref={carouselRef}
           data={data}
           scrollAnimationDuration={1300}

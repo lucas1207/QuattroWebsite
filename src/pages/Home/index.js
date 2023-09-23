@@ -35,7 +35,7 @@ const Home = () => {
         onScroll={(e) => {
           setScrollPosition(e.nativeEvent.contentOffset.y);
         }}
-        style={[styles.container, { height, width }]}
+        style={[styles.container, { height, width: width - 1 }]}
       >
         <Carrousel />
 

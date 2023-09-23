@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState, forwardRef } from "react";
-import { Animated, Pressable } from "react-native";
+import { Animated, Pressable, View } from "react-native";
 
 import { createStyles } from "./styles";
 import { useStyleguide } from "../../hooks/styleguide";
@@ -43,7 +43,9 @@ const FloatButton = forwardRef(function FloatButton(props, ref) {
       }}
       style={[styles.container, { opacity }]}
     >
-      <ArrowUp color="white" />
+      <View style={{ transform: [{ scale: 0.7 }] }}>
+        <ArrowUp color="white" />
+      </View>
     </AnimatedPressable>
   );
 });
