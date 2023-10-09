@@ -42,7 +42,8 @@ export default function App() {
   return (
     <Provider>
       <GestureHandlerRootView>
-        <Home />
+        {/* <Home /> */}
+        <Portfolio />
       </GestureHandlerRootView>
     </Provider>
   );
