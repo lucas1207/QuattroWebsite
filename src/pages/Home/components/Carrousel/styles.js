@@ -24,7 +24,7 @@ export const createStyles = (styleGuide) =>
 
     title: {
       fontFamily: "Medium",
-      fontSize: 65,
+      fontSize: 45,
       color: "white",
       zIndex: 10,
     },
@@ -44,7 +44,7 @@ export const createStyles = (styleGuide) =>
     },
 
     description: {
-      fontSize: 20,
+      fontSize: 18,
       marginTop: 20,
       color: "white",
       fontFamily: "Regular",

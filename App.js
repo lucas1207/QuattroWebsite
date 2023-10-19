@@ -10,21 +10,23 @@ import {
 } from "@expo-google-fonts/montserrat";
 
 import { initializeApp } from "firebase/app";
-import Portfolio from "./src/pages/Portfolio";
 
 import Provider from "./src/hooks";
-import Home from "./src/pages/Home";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+
+import AppRoutes from "./src/routes";
+import Home from "./src/pages/Home";
 
 export default function App() {
   const firebaseConfig = {
-    apiKey: "AIzaSyAwU4FhYpz9nYbMmbHnA1QvzZethZcKLJY",
-    authDomain: "teste-email-2358f.firebaseapp.com",
-    projectId: "teste-email-2358f",
-    storageBucket: "teste-email-2358f.appspot.com",
-    messagingSenderId: "1001469675669",
-    appId: "1:1001469675669:web:c9c5b8a42ad9be8fe0f39c",
-    measurementId: "G-C620CC4Z2E",
+    apiKey: "AIzaSyA5KnRleT5YPeyTmGLgYoBC_pe7H5uJgVI",
+    authDomain: "sitequattro-2c26e.firebaseapp.com",
+    databaseURL: "https://sitequattro-2c26e-default-rtdb.firebaseio.com",
+    projectId: "sitequattro-2c26e",
+    storageBucket: "sitequattro-2c26e.appspot.com",
+    messagingSenderId: "364178704508",
+    appId: "1:364178704508:web:8e09ad13ead0cc4d4721f9",
+    measurementId: "G-JTE10SBVXW",
   };
 
   const app = initializeApp(firebaseConfig);
@@ -42,8 +44,7 @@ export default function App() {
   return (
     <Provider>
       <GestureHandlerRootView>
-        {/* <Home /> */}
-        <Portfolio />
+        <AppRoutes />
       </GestureHandlerRootView>
     </Provider>
   );

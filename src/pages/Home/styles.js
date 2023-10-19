@@ -5,12 +5,4 @@ export const createStyles = (styleGuide) =>
     container: {
       backgroundColor: styleGuide.colors.backgroundPrimary,
     },
-
-    imageRectangle: {
-      borderWidth: 10,
-      width: "100%",
-      resizeMode: "stretch",
-      position: "absolute",
-      borderWidth: 10,
-    },
   });

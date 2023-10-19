@@ -1,22 +1,31 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from "react-native";
 
+export const createStyles = (styleGuide) =>
+  StyleSheet.create({
+    container: {
+      width: "100%",
+      paddingTop: 30,
+      paddingLeft: 50,
+      backgroundColor: styleGuide.colors.backgroundPrimary,
+    },
 
-export const createStyles = (styleGuide) => StyleSheet.create ({
- container: {
-   width: '100%',
-    paddingTop: 70,
-    paddingLeft: 50,
-  
- },
+    textTitle: {
+      fontFamily: "Regular",
+      fontSize: 20,
+      marginRight: 25,
+      color: "#333333",
+    },
 
-textTitle: {
-  fontFamily: 'Regular',
-  fontSize: 20,
-  color: '#333333',
-  marginBottom: 25
-}
+    viewTitle: {
+      flexDirection: "row",
 
+      alignItems: "center",
+    },
 
-
-
-})
+    buttonArrow: {
+      height: 50,
+      width: 50,
+      justifyContent: "center",
+      alignItems: "center",
+    },
+  });

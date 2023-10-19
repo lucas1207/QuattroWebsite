@@ -1,5 +1,5 @@
 import React, { forwardRef, useCallback, useEffect, useMemo } from "react";
-import { Pressable, View, Image, Text, Linking } from "react-native";
+import { Pressable, View, Image, Text, Linking, Animated } from "react-native";
 
 import { createStyles } from "./styles";
 import { useStyleguide } from "../../hooks/styleguide";
@@ -9,43 +9,54 @@ import Linkedin from "../../assets/svgs/linkedin";
 import Facebook from "../../assets/svgs/facebook";
 import Youtube from "../../assets/svgs/youtube";
 import { usePositions } from "../../hooks/positions";
+import { useNavigation, useRoute } from "@react-navigation/native";
+import ButtonHeader from "./ButtonHeader";
 
 const Header = forwardRef(function Header(props, ref) {
   const { styleguide, responsive, maxWidth } = useStyleguide();
   const styles = useMemo(() => createStyles(styleguide), [styleguide]);
-
+  const { navigate } = useNavigation();
   const { positions } = usePositions();
 
-  const tabs = [
-    // "Portfolio",
-    "Sobre",
-    "Patrocinadores",
-    "Contato",
+  const { name } = useRoute();
+
+  const tabs = ["Portfólio", "Sobre", "Patrocinadores", "Contato"];
+  const colors = [
+    styleguide.colors.quattroRed,
+    styleguide.colors.quattroLightBlue,
+    styleguide.colors.quattroYellow,
+    styleguide.colors.quattroDarkBlue,
   ];
 
   const handleButtonPress = useCallback(
     (item) => {
       switch (item) {
-        case "Portfolio":
-          return console.log("portfolio");
+        case "Portfólio":
+          return navigate("Portfolio");
         case "Sobre":
-          return ref.current?.scrollTo({
-            x: 0,
-            y: positions.aboutUs - 150,
-            animated: true,
-          });
+          return name === "Home"
+            ? ref.current?.scrollTo({
+                x: 0,
+                y: positions.aboutUs - 150,
+                animated: true,
+              })
+            : navigate("Home");
         case "Patrocinadores":
-          return ref.current?.scrollTo({
-            x: 0,
-            y: positions.sponsors,
-            animated: true,
-          });
+          return name === "Home"
+            ? ref.current?.scrollTo({
+                x: 0,
+                y: positions.sponsors,
+                animated: true,
+              })
+            : navigate("Home");
         case "Contato":
-          return ref.current?.scrollTo({
-            x: 0,
-            y: positions.contact,
-            animated: true,
-          });
+          return name === "Home"
+            ? ref.current?.scrollTo({
+                x: 0,
+                y: positions.contact,
+                animated: true,
+              })
+            : navigate("Home");
       }
     },
     [positions]
@@ -54,21 +65,26 @@ const Header = forwardRef(function Header(props, ref) {
   return (
     <View onLayout={(e) => {}} style={styles.container}>
       <View style={[styles.contentContainer, { maxWidth }]}>
-        <Pressable style={styles.buttonQuattro}>
+        <Pressable
+          onPress={() => {
+            navigate("Home");
+          }}
+          style={styles.buttonQuattro}
+        >
           <Image source={LogoQuattro} style={styles.logoQuattro}></Image>
         </Pressable>
 
         {responsive === "web" ? (
           <View style={styles.viewLinks}>
             {tabs.map((item, index) => (
-              <Pressable
+              <ButtonHeader
                 key={index}
+                title={item}
+                hoverColor={colors[index]}
                 onPress={() => {
                   handleButtonPress(item);
                 }}
-              >
-                <Text style={styles.textButton}>{item}</Text>
-              </Pressable>
+              />
             ))}
           </View>
         ) : null}

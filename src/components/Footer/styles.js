@@ -4,7 +4,8 @@ export const createStyles = (styleGuide) =>
   StyleSheet.create({
     container: {
       width: "100%",
-
+      position: "absolute",
+      bottom: 0,
       padding: 10,
       flexDirection: "row",
       alignItems: "center",

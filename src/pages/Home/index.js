@@ -1,11 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import {
-  View,
-  Text,
-  Image,
-  ScrollView,
-  useWindowDimensions,
-} from "react-native";
+import { View, ScrollView, useWindowDimensions } from "react-native";
 
 import { createStyles } from "./styles";
 import { useStyleguide } from "../../hooks/styleguide";
@@ -18,7 +12,6 @@ import Footer from "../../components/Footer";
 import FaleConosco from "../Home/components/Contact";
 import { usePositions } from "../../hooks/positions";
 import FloatButton from "../../components/FloatButton";
-
 const Home = () => {
   const { styleguide } = useStyleguide();
   const styles = useMemo(() => createStyles(styleguide), [styleguide]);
@@ -28,23 +21,32 @@ const Home = () => {
 
   return (
     <>
-      <ScrollView
-        scrollEventThrottle={16}
-        showsVerticalScrollIndicator={false}
-        ref={scrollRef}
-        onScroll={(e) => {
-          setScrollPosition(e.nativeEvent.contentOffset.y);
+      <View
+        style={{
+          height,
+          width: width - 1,
+          backgroundColor: styleguide.colors.backgroundPrimary,
         }}
-        style={[styles.container, { height, width: width - 1 }]}
       >
-        <Carrousel />
+        <ScrollView
+          scrollEventThrottle={16}
+          showsVerticalScrollIndicator={false}
+          onScroll={(e) => {
+            setScrollPosition(e.nativeEvent.contentOffset.y);
+          }}
+          ref={scrollRef}
+          contentContainerStyle={{ flexGrow: 1 }}
+        >
+          <Carrousel />
 
-        <AboutUs />
-        <Depoiments />
-        <Patrocinadores />
-        <FaleConosco />
-        <Footer />
-      </ScrollView>
+          <AboutUs />
+          <Depoiments />
+          <Patrocinadores />
+          <FaleConosco />
+          <Footer />
+        </ScrollView>
+      </View>
+
       <Header ref={scrollRef} />
 
       <FloatButton ref={scrollRef} />

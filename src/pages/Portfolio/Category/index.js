@@ -1,46 +1,102 @@
-import React, { useMemo, useRef } from "react";
-import { View, Text, ScrollView } from "react-native";
+import React, { useMemo, useRef, useState } from "react";
+import { View, Text, ScrollView, Pressable } from "react-native";
 
 import { createStyles } from "./styles";
 import ListItem from "../ListItem";
 import { useStyleguide } from "../../../hooks/styleguide";
 import { LinearGradient } from "expo-linear-gradient";
+import Right from "../../../assets/svgs/right";
+import Left from "../../../assets/svgs/left";
 
-const Category = ({ data }) => {
+const Category = ({ item, setSelectedItem }) => {
   const { styleguide } = useStyleguide();
   const styles = useMemo(() => createStyles(styleguide), [styleguide]);
-  console.log("data", data);
+
+  const scrollViewRef = useRef();
+
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  const title = useMemo(() => {
+    switch (item.category) {
+      case "livros":
+        return "Livros";
+      case "exposicoes":
+        return "Exposições";
+      case "livros/exposicoes":
+        return "Livros + Exposições";
+      case "centros":
+        return "Centros Culturais";
+      case "concursos":
+        return "Concursos Culturais";
+      case "festivais":
+        return "Festivais";
+    }
+  }, [item]);
+
+  const handleButtonPress = (side) => {
+    scrollViewRef.current?.scrollTo({
+      x: side === "left" ? -500 : 500,
+      y: 0,
+      animated: true,
+    });
+  };
+
   return (
     <View style={styles.container}>
-      <Text style={styles.textTitle}>{data.title}</Text>
+      <View style={styles.viewTitle}>
+        <Text style={styles.textTitle}>{title}</Text>
+        <Pressable
+          onPress={() => {
+            handleButtonPress("left");
+          }}
+          style={styles.buttonArrow}
+        >
+          <View style={{ transform: [{ scale: 0.5 }] }}>
+            <Left
+              color={
+                scrollPosition > 0 ? styleguide.colors.fontPrimary : "#d9d9d9"
+              }
+            />
+          </View>
+        </Pressable>
+        <Pressable
+          onPress={() => {
+            handleButtonPress("right");
+          }}
+          style={styles.buttonArrow}
+        >
+          <View style={{ transform: [{ scale: 0.5 }] }}>
+            <Right color={styleguide.colors.fontPrimary} />
+          </View>
+        </Pressable>
+      </View>
 
-      <View
-        style={{ width: "100%", flexDirection: "row" }}
-      >
+      <View style={{ width: "100%", flexDirection: "row" }}>
         <ScrollView
+          onScroll={(e) => {
+            setScrollPosition(e.nativeEvent.contentOffset.x);
+          }}
+          ref={scrollViewRef}
           showsHorizontalScrollIndicator={false}
           horizontal
-          style={{ width: "100%", padding: 15}}
+          style={{
+            width: "100%",
+            padding: 20,
+            paddingLeft: 30,
+            paddingBottom: 25,
+          }}
         >
-          {data.projects.map((item, index) => (
-            <ListItem id={index} data={item} />
-          ))}
-       
+          {item.projects.map((item, index) => {
+            return (
+              <ListItem
+                setSelectedItem={setSelectedItem}
+                key={index}
+                id={index}
+                data={item}
+              />
+            );
+          })}
         </ScrollView>
-
-        <LinearGradient
-         start={[0.5, 0.5]}
-         end={[0, 0.5]}
-         colors={["#000000b3", "#00000000"]}
-            style={{
-              height: 150,
-              width: 90,
-           
-              position: "absolute",
-              right: 0,
-              top: 15,
-            }}
-          />
       </View>
     </View>
   );

@@ -1,11 +1,12 @@
 {
   "files": {
-    "main.js": "/static/js/main.65b0be4e.js",
-    "static/js/987.38ef7c21.js": "/static/js/987.38ef7c21.js",
+    "main.js": "/static/js/main.87fc9965.js",
+    "static/js/418.8254c5b8.js": "/static/js/418.8254c5b8.js",
     "static/media/exempleSlide.png": "/static/media/exempleSlide.ee766d95193e831cecb4.png",
     "static/media/paralax1.jpg": "/static/media/paralax1.00ab1cbb84e85923277a.jpg",
     "static/media/FotoSobreNos.jpg": "/static/media/FotoSobreNos.56fe6e1586d85ed63bc9.jpg",
     "static/media/BackgroundConcurso.png": "/static/media/BackgroundConcurso.2adfaaa336f97c98dcec.png",
+    "static/media/Ionicons.ttf": "/static/media/Ionicons.3517aeaa34b2f8cd8eef.ttf",
     "static/media/AvatarThiago.png": "/static/media/AvatarThiago.e5b608b74837f51006aa.png",
     "static/media/Montserrat_600SemiBold_Italic.ttf": "/static/media/Montserrat_600SemiBold_Italic.a8c8285681c31cae8e5d.ttf",
     "static/media/Montserrat_300Light_Italic.ttf": "/static/media/Montserrat_300Light_Italic.57ae4565eaf9e1fc53ba.ttf",
@@ -92,11 +93,11 @@
     "favicon-16.png": "/favicon-16.png",
     "manifest.json": "/manifest.json",
     "serve.json": "/serve.json",
-    "main.65b0be4e.js.map": "/static/js/main.65b0be4e.js.map",
-    "987.38ef7c21.js.map": "/static/js/987.38ef7c21.js.map"
+    "main.87fc9965.js.map": "/static/js/main.87fc9965.js.map",
+    "418.8254c5b8.js.map": "/static/js/418.8254c5b8.js.map"
   },
   "entrypoints": [
-    "static/js/987.38ef7c21.js",
-    "static/js/main.65b0be4e.js"
+    "static/js/418.8254c5b8.js",
+    "static/js/main.87fc9965.js"
   ]
 }

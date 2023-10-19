@@ -84,7 +84,6 @@ const Contato = () => {
           setMensagem("");
         },
         function (error) {
-          console.log("FAILED...", error);
           setLoading(false);
           alert("Erro ao enviar a mensagem, tente novamente");
         }
