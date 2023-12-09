@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/static/js/main.87fc9965.js",
-    "static/js/418.8254c5b8.js": "/static/js/418.8254c5b8.js",
+    "main.js": "/static/js/main.ce7d62c5.js",
+    "static/js/418.0a13f067.js": "/static/js/418.0a13f067.js",
     "static/media/exempleSlide.png": "/static/media/exempleSlide.ee766d95193e831cecb4.png",
     "static/media/paralax1.jpg": "/static/media/paralax1.00ab1cbb84e85923277a.jpg",
     "static/media/FotoSobreNos.jpg": "/static/media/FotoSobreNos.56fe6e1586d85ed63bc9.jpg",
@@ -93,11 +93,11 @@
     "favicon-16.png": "/favicon-16.png",
     "manifest.json": "/manifest.json",
     "serve.json": "/serve.json",
-    "main.87fc9965.js.map": "/static/js/main.87fc9965.js.map",
-    "418.8254c5b8.js.map": "/static/js/418.8254c5b8.js.map"
+    "main.ce7d62c5.js.map": "/static/js/main.ce7d62c5.js.map",
+    "418.0a13f067.js.map": "/static/js/418.0a13f067.js.map"
   },
   "entrypoints": [
-    "static/js/418.8254c5b8.js",
-    "static/js/main.87fc9965.js"
+    "static/js/418.0a13f067.js",
+    "static/js/main.ce7d62c5.js"
   ]
 }

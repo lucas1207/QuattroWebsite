@@ -35,7 +35,7 @@ const Category = ({ item, setSelectedItem }) => {
 
   const handleButtonPress = (side) => {
     scrollViewRef.current?.scrollTo({
-      x: side === "left" ? -500 : 500,
+      x: side === "left" ? scrollPosition - 800 : scrollPosition + 800,
       y: 0,
       animated: true,
     });
@@ -83,6 +83,7 @@ const Category = ({ item, setSelectedItem }) => {
             width: "100%",
             padding: 20,
             paddingLeft: 30,
+
             paddingBottom: 25,
           }}
         >
