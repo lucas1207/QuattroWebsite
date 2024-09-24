@@ -1,5 +1,6 @@
 import React, { useMemo, useRef, useState } from "react";
 import { View, Text, Pressable, Animated, Image } from "react-native";
+import { Linking } from "react-native";
 
 import { createStyles } from "./styles";
 import { useStyleguide } from "../../../hooks/styleguide";
@@ -39,7 +40,7 @@ const ListItem = ({ data, setSelectedItem }) => {
   return (
     <AnimatedPressable
       onPress={() => {
-        setSelectedItem(data);
+        window.location.href=`http://quattroprojetos.com.br/portfolio/${data.key}`
       }}
       onHoverIn={() => {
         handleHoverIn();

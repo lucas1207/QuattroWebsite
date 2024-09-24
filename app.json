@@ -4,6 +4,7 @@
     "slug": "SiteQuattro",
     "version": "1.0.0",
     "orientation": "portrait",
+    "scheme":"quattroprojetos",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {

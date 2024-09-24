@@ -11,13 +11,17 @@ import {
 
 import { initializeApp } from "firebase/app";
 
+
 import Provider from "./src/hooks";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 import AppRoutes from "./src/routes";
-import Home from "./src/pages/Home";
+
 
 export default function App() {
+
+
+
   const firebaseConfig = {
     apiKey: "AIzaSyA5KnRleT5YPeyTmGLgYoBC_pe7H5uJgVI",
     authDomain: "sitequattro-2c26e.firebaseapp.com",

@@ -16,9 +16,13 @@ import { getDatabase, ref, onValue } from "firebase/database";
 
 import { useStyleguide } from "../../hooks/styleguide";
 import ProjectPage from "./ProjectPage";
+import { ActivityIndicator } from "react-native-web";
 
-const Portfolio = () => {
+const Portfolio = ({route}) => {
   const db = getDatabase();
+  const params = route?.params;
+
+ 
 
   const { styleguide } = useStyleguide();
   const styles = useMemo(() => createStyles(styleguide), [styleguide]);
@@ -28,54 +32,63 @@ const Portfolio = () => {
 
   const [projects, setProjects] = useState([]);
 
-  const [loading, setLoading] = useState(false);
-
-  const [categories, setCategories] = useState([
-    { label: "Livros", value: "livros" },
-    { label: "Exposições", value: "exposicoes" },
-
-    { label: "Livros + Exposições", value: "livros/exposicoes" },
-    { label: "Centros Culturais", value: "centros" },
-    { label: "Concursos culturais", value: "concursos" },
-    { label: "Festivais", value: "festivais" },
-  ]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setLoading(true);
     let categorizedData = [];
+
+   
+   
     const projects = ref(db, "projects/");
-    onValue(projects, (snapshot) => {
-      const data = snapshot.val();
-      if (data !== null) {
-        Object.values(data).forEach((item) => {
-          const category = item.category;
+    if(!projects.length) {
+      onValue(projects, (snapshot) => {
+        const data = snapshot.val();
+          Object.values(data).forEach((item) => {
+            const category = item.category;
+  
+            const existingCategory = categorizedData.find(
+              (entry) => entry.category === category
+            );
+  
+            if (existingCategory) {
+              existingCategory.projects.push(item);
+            } else {
+              categorizedData.push({
+                category: category,
+                projects: [item],
+              });
+            }
+          });
 
-          const existingCategory = categorizedData.find(
-            (entry) => entry.category === category
-          );
+          console.log(data)
+       
 
-          if (existingCategory) {
-            existingCategory.projects.push(item);
-          } else {
-            categorizedData.push({
-              category: category,
-              projects: [item],
-            });
+          if(route.params) {
+            const itemId = params.itemId
+            setSelectedItem((data[itemId]))
           }
-        });
+          setProjects(categorizedData);
+        
+      });
 
-        setProjects(categorizedData);
-      } else {
-        setProjects({});
+    } else {
+      if(route.params) {
+        const itemId = params.itemId
+        setSelectedItem((data[itemId]))
       }
-    });
+    }
+  
 
     setLoading(false);
-  }, []);
+  }, [route]);
 
   return (
     <>
-      {selectedItem ? (
+  {loading ? 
+    <ActivityIndicator size='large'/>
+  : <>
+    {selectedItem ? (
         <ProjectPage item={selectedItem} setSelectedItem={setSelectedItem} />
       ) : (
         <View style={[styles.container, { minHeight: height }]}>
@@ -92,6 +105,7 @@ const Portfolio = () => {
           })}
         </View>
       )}
+  </> }
     </>
   );
 };

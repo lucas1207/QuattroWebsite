@@ -14,9 +14,9 @@ import { usePositions } from "../../hooks/positions";
 import FloatButton from "../../components/FloatButton";
 const Home = () => {
   const { styleguide } = useStyleguide();
-  const styles = useMemo(() => createStyles(styleguide), [styleguide]);
+ 
   const scrollRef = useRef();
-  const { scrollPosition, setScrollPosition } = usePositions();
+  const {  setScrollPosition } = usePositions();
   const { height, width } = useWindowDimensions();
 
   return (

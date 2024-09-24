@@ -32,7 +32,7 @@ const Header = forwardRef(function Header(props, ref) {
     (item) => {
       switch (item) {
         case "Portfólio":
-          return navigate("Portfolio");
+          return navigate("portfolio");
         case "Sobre":
           return name === "Home"
             ? ref.current?.scrollTo({
@@ -40,7 +40,7 @@ const Header = forwardRef(function Header(props, ref) {
                 y: positions.aboutUs - 150,
                 animated: true,
               })
-            : navigate("Home");
+            : navigate("home");
         case "Patrocinadores":
           return name === "Home"
             ? ref.current?.scrollTo({
@@ -48,7 +48,7 @@ const Header = forwardRef(function Header(props, ref) {
                 y: positions.sponsors,
                 animated: true,
               })
-            : navigate("Home");
+            : navigate("home");
         case "Contato":
           return name === "Home"
             ? ref.current?.scrollTo({
@@ -56,7 +56,7 @@ const Header = forwardRef(function Header(props, ref) {
                 y: positions.contact,
                 animated: true,
               })
-            : navigate("Home");
+            : navigate("home");
       }
     },
     [positions]
@@ -67,7 +67,7 @@ const Header = forwardRef(function Header(props, ref) {
       <View style={[styles.contentContainer, { maxWidth }]}>
         <Pressable
           onPress={() => {
-            navigate("Home");
+            navigate("home");
           }}
           style={styles.buttonQuattro}
         >
