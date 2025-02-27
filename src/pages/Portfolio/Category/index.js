@@ -30,6 +30,8 @@ const Category = ({ item, setSelectedItem }) => {
         return "Concursos Culturais";
       case "festivais":
         return "Festivais";
+        case "artes":
+          return "Artes Cênicas";
     }
   }, [item]);
 

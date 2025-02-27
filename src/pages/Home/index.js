@@ -19,6 +19,8 @@ const Home = () => {
   const {  setScrollPosition } = usePositions();
   const { height, width } = useWindowDimensions();
 
+  console.log(scrollRef)
+
   return (
     <>
       <View

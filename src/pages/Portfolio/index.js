@@ -83,6 +83,8 @@ const Portfolio = ({route}) => {
     setLoading(false);
   }, [route]);
 
+  console.log(projects)
+
   return (
     <>
   {loading ? 
